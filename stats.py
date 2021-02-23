@@ -11,6 +11,9 @@ class Game:
     def get_num_of_participating_players(self):
         return len(list(filter(lambda score: score is not None, self.total_scores)))
 
+    def num_of_participating_players_matches(self, num_of_participants):
+        return num_of_participants is None or self.get_num_of_participating_players() == num_of_participants
+
 with open('SushiGo.csv', 'r') as f:
     lines = [line.strip() for line in f.readlines()]
 
@@ -37,14 +40,31 @@ for i in range(0 ,len(lines), 5):
     game.total_scores = get_scores_from_line(lines[i + 4])
     games.append(game)
 
-def avg(lst):
+def calc_avg(lst):
+    if len(lst) == 0:
+        return None
     return sum(lst) / len(lst)
 
-def get_stats_for_measure(games, num_of_players, measure):
-    return [measure(games, pi) for pi in range(num_of_players)]
+def calc_max(lst):
+    if len(lst) == 0:
+        return None
+    return max(lst)
 
-def measure_games_played(games, pi):
-    return len(list(filter(lambda game: game.total_scores[pi] is not None, games)))
+def calc_min(lst):
+    if len(lst) == 0:
+        return None
+    return min(lst)
+
+def calc_round(value, digits):
+    if value is None:
+        return None
+    return round(value, digits)
+
+def get_stats_for_measure(games, num_of_players, measure, num_of_participants):
+    return [measure(games, pi, num_of_participants) for pi in range(num_of_players)]
+
+def measure_games_played(games, pi, num_of_participants):
+    return len(list(filter(lambda game: game.was_played_by(pi) and game.num_of_participating_players_matches(num_of_participants), games)))
 
 def get_first_place_factor(game, pi):
     player_total_score = game.total_scores[pi]
@@ -60,8 +80,8 @@ def get_first_place_factor(game, pi):
             same_count += 1
     return 1 / same_count
 
-def measure_games_placed_first(games, pi):
-    return sum([get_first_place_factor(game, pi) for game in games])
+def measure_games_placed_first(games, pi, num_of_participants):
+    return sum([get_first_place_factor(game, pi) for game in filter(lambda game: game.num_of_participating_players_matches(num_of_participants), games)])
 
 def get_last_place_factor(game, pi):
     player_total_score = game.total_scores[pi]
@@ -77,8 +97,8 @@ def get_last_place_factor(game, pi):
             same_count += 1
     return 1 / same_count
 
-def measure_games_placed_last(games, pi):
-    return sum([get_last_place_factor(game, pi) for game in games])
+def measure_games_placed_last(games, pi, num_of_participants):
+    return sum([get_last_place_factor(game, pi) for game in filter(lambda game: game.num_of_participating_players_matches(num_of_participants), games)])
 
 def get_position_grade(game, pi):
     grade_delta_per_place = 1 / (game.get_num_of_participating_players() - 1)
@@ -96,82 +116,88 @@ def get_position_grade(game, pi):
     highest_place_grade = highest_place * grade_delta_per_place
     return (lowest_place_grade + highest_place_grade) / 2
 
-def measure_avg_position_grade(games, pi):
-    games_played = list(filter(lambda game: game.was_played_by(pi), games))
-    return avg([get_position_grade(game, pi) for game in games_played])
+def measure_avg_position_grade(games, pi, num_of_participants):
+    games_played = list(filter(lambda game: game.was_played_by(pi) and game.num_of_participating_players_matches(num_of_participants), games))
+    return calc_avg([get_position_grade(game, pi) for game in games_played])
 
-def measure_avg_game_score(games, pi):
-    games_played = list(filter(lambda game: game.was_played_by(pi), games))
-    return avg([game.total_scores[pi] for game in games_played])
+def measure_avg_game_score(games, pi, num_of_participants):
+    games_played = list(filter(lambda game: game.was_played_by(pi) and game.num_of_participating_players_matches(num_of_participants), games))
+    return calc_avg([game.total_scores[pi] for game in games_played])
 
-def measure_highest_game_score(games, pi):
-    games_played = list(filter(lambda game: game.was_played_by(pi), games))
-    return max([game.total_scores[pi] for game in games_played])
+def measure_highest_game_score(games, pi, num_of_participants):
+    games_played = list(filter(lambda game: game.was_played_by(pi) and game.num_of_participating_players_matches(num_of_participants), games))
+    return calc_max([game.total_scores[pi] for game in games_played])
 
-def measure_lowest_game_score(games, pi):
-    games_played = list(filter(lambda game: game.was_played_by(pi), games))
-    return min([game.total_scores[pi] for game in games_played])
+def measure_lowest_game_score(games, pi, num_of_participants):
+    games_played = list(filter(lambda game: game.was_played_by(pi) and game.num_of_participating_players_matches(num_of_participants), games))
+    return calc_min([game.total_scores[pi] for game in games_played])
 
-def measure_avg_round_score(games, pi):
-    games_played = list(filter(lambda game: game.was_played_by(pi), games))
+def measure_avg_round_score(games, pi, num_of_participants):
+    games_played = list(filter(lambda game: game.was_played_by(pi) and game.num_of_participating_players_matches(num_of_participants), games))
     round_scores = []
     for game in games_played:
         round_scores.extend([rnd[pi] for rnd in game.rounds])
-    return avg(round_scores)
+    return calc_avg(round_scores)
 
-def measure_highest_round_score(games, pi):
-    games_played = list(filter(lambda game: game.was_played_by(pi), games))
+def measure_highest_round_score(games, pi, num_of_participants):
+    games_played = list(filter(lambda game: game.was_played_by(pi) and game.num_of_participating_players_matches(num_of_participants), games))
     round_scores = []
     for game in games_played:
         round_scores.extend([rnd[pi] for rnd in game.rounds])
-    return max(round_scores)
+    return calc_max(round_scores)
 
-def measure_lowest_round_score(games, pi):
-    games_played = list(filter(lambda game: game.was_played_by(pi), games))
+def measure_lowest_round_score(games, pi, num_of_participants):
+    games_played = list(filter(lambda game: game.was_played_by(pi) and game.num_of_participating_players_matches(num_of_participants), games))
     round_scores = []
     for game in games_played:
         round_scores.extend([rnd[pi] for rnd in game.rounds])
-    return min(round_scores)
+    return calc_min(round_scores)
 
-def measure_avg_pudding_score(games, pi):
-    games_played = list(filter(lambda game: game.was_played_by(pi), games))
-    return avg([game.pudding_scores[pi] for game in games_played])
+def measure_avg_pudding_score(games, pi, num_of_participants):
+    games_played = list(filter(lambda game: game.was_played_by(pi) and game.num_of_participating_players_matches(num_of_participants), games))
+    return calc_avg([game.pudding_scores[pi] for game in games_played])
 
-def measure_avg_score_per_card(games, pi):
-    games_played = list(filter(lambda game: game.was_played_by(pi), games))
+def measure_avg_score_per_card(games, pi, num_of_participants):
+    games_played = list(filter(lambda game: game.was_played_by(pi) and game.num_of_participating_players_matches(num_of_participants), games))
     total_scores = 0
     total_cards = 0
     for game in games_played:
         total_scores += game.total_scores[pi]
-        cards_played = 24
-        if game.get_num_of_participating_players() == 5:
-            cards_played = 21
-        total_cards += cards_played
+        cards_per_round = 12 - game.get_num_of_participating_players()
+        cards_played_in_game = cards_per_round * 3
+        total_cards += cards_played_in_game
+    if total_cards == 0:
+        return None
     return total_scores / total_cards
 
+num_of_participants = None
 stats = {
-    'Games played': get_stats_for_measure(games, num_of_players, measure_games_played),
-    'Games placed first': get_stats_for_measure(games, num_of_players, measure_games_placed_first),
-    'Games placed last': get_stats_for_measure(games, num_of_players, measure_games_placed_last),
-    'Average position grade': get_stats_for_measure(games, num_of_players, measure_avg_position_grade),
-    'Average game score': get_stats_for_measure(games, num_of_players, measure_avg_game_score),
-    'Highest game score': get_stats_for_measure(games, num_of_players, measure_highest_game_score),
-    'Lowest game score': get_stats_for_measure(games, num_of_players, measure_lowest_game_score),
-    'Average round score': get_stats_for_measure(games, num_of_players, measure_avg_round_score),
-    'Highest round score': get_stats_for_measure(games, num_of_players, measure_highest_round_score),
-    'Lowest round score': get_stats_for_measure(games, num_of_players, measure_lowest_round_score),
-    'Average pudding score': get_stats_for_measure(games, num_of_players, measure_avg_pudding_score),
-    'Average score per card': get_stats_for_measure(games, num_of_players, measure_avg_score_per_card),
+    'Games played': get_stats_for_measure(games, num_of_players, measure_games_played, num_of_participants),
+    'Games placed first': get_stats_for_measure(games, num_of_players, measure_games_placed_first, num_of_participants),
+    'Games placed last': get_stats_for_measure(games, num_of_players, measure_games_placed_last, num_of_participants),
+    'Average position grade': get_stats_for_measure(games, num_of_players, measure_avg_position_grade, num_of_participants),
+    'Average game score': get_stats_for_measure(games, num_of_players, measure_avg_game_score, num_of_participants),
+    'Highest game score': get_stats_for_measure(games, num_of_players, measure_highest_game_score, num_of_participants),
+    'Lowest game score': get_stats_for_measure(games, num_of_players, measure_lowest_game_score, num_of_participants),
+    'Average round score': get_stats_for_measure(games, num_of_players, measure_avg_round_score, num_of_participants),
+    'Highest round score': get_stats_for_measure(games, num_of_players, measure_highest_round_score, num_of_participants),
+    'Lowest round score': get_stats_for_measure(games, num_of_players, measure_lowest_round_score, num_of_participants),
+    'Average pudding score': get_stats_for_measure(games, num_of_players, measure_avg_pudding_score, num_of_participants),
+    'Average score per card': get_stats_for_measure(games, num_of_players, measure_avg_score_per_card, num_of_participants),
 }
 
+num_of_participants_description_string = 'any number of'
+if num_of_participants is not None:
+    num_of_participants_description_string = str(num_of_participants)
+print('Stats for ' + num_of_participants_description_string + ' players:')
 for key in stats:
-    print(key + ': ' + str([round(value, 2) for value in stats[key]]))
+    print(key + ': ' + str([calc_round(value, 2) for value in stats[key]]))
 
 separator = ','
 output_lines = []
 output_lines.append('Stat,' + separator.join(names) + '\n')
 for key in stats:
-    output_line = key + separator + separator.join([str(round(value, 2)) for value in stats[key]]) + '\n'
+    output_line = key + separator + separator.join([str(calc_round(value, 2)) for value in stats[key]]) + '\n'
     output_lines.append(output_line)
 
 with open('stats.csv', 'w') as f:
