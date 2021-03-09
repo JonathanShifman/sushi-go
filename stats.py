@@ -170,7 +170,7 @@ def measure_avg_score_per_card(games, pi, num_of_participants):
         return None
     return total_scores / total_cards
 
-num_of_participants = None
+num_of_participants = 3
 stats = {
     'Games played': get_stats_for_measure(games, num_of_players, measure_games_played, num_of_participants),
     'Games placed first': get_stats_for_measure(games, num_of_players, measure_games_placed_first, num_of_participants),
