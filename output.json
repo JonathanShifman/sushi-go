@@ -1,0 +1,3280 @@
+{
+  "players": [
+    "Player",
+    "Player",
+    "Player",
+    "Player"
+  ],
+  "rounds": [
+    {
+      "roundMoves": [
+        [
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Sashimi",
+                "Chopsticks",
+                "Nigiri2",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Sashimi",
+                "Chopsticks",
+                "Nigiri2",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Pudding",
+                "Pudding",
+                "Tempura",
+                "Maki2",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Pudding",
+                "Tempura",
+                "Maki2",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Pudding"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Tempura",
+                "Pudding",
+                "Nigiri2",
+                "Tempura",
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura",
+                "Pudding",
+                "Nigiri2",
+                "Tempura",
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Dumpling"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Sashimi",
+                "Pudding",
+                "Maki3",
+                "Sashimi",
+                "Sashimi",
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Pudding",
+                "Maki3",
+                "Sashimi",
+                "Sashimi",
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Sashimi"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Pudding",
+                "Maki3",
+                "Sashimi",
+                "Sashimi",
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki3",
+                "Sashimi",
+                "Sashimi",
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Sashimi",
+                "Chopsticks",
+                "Nigiri2",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Pudding"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Chopsticks",
+                "Nigiri2",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Pudding",
+                "Tempura",
+                "Maki2",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura",
+                "Maki2",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Pudding",
+                "Nigiri2",
+                "Tempura",
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Sashimi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Pudding",
+                "Nigiri2",
+                "Tempura",
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Pudding",
+                "Nigiri2",
+                "Tempura",
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri2",
+                "Tempura",
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki3",
+                "Sashimi",
+                "Sashimi",
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Sashimi",
+                "Sashimi",
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Chopsticks",
+                "Nigiri2",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri2",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Maki2",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding",
+                "Maki2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri2",
+                "Tempura",
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura",
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3",
+                "Nigiri2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Sashimi",
+                "Sashimi",
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Sashimi",
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks",
+                "Sashimi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri2",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Nigiri2"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding",
+                "Maki2",
+                "Maki2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3",
+                "Nigiri2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3",
+                "Nigiri2",
+                "Dumpling"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks",
+                "Sashimi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks",
+                "Sashimi",
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Sashimi",
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Nigiri2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Nigiri2",
+                "Sashimi"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Maki3",
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding",
+                "Maki2",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding",
+                "Maki2",
+                "Maki2",
+                "Maki3"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki3",
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3",
+                "Nigiri2",
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3",
+                "Nigiri2",
+                "Dumpling",
+                "Maki3"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri1",
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks",
+                "Sashimi",
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks",
+                "Sashimi",
+                "Tempura",
+                "Nigiri1"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Sashimi",
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Nigiri2",
+                "Sashimi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Nigiri2",
+                "Sashimi",
+                "Sashimi"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Pudding",
+                "Sashimi"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding",
+                "Maki2",
+                "Maki2",
+                "Maki3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Sashimi"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding",
+                "Maki2",
+                "Maki2",
+                "Maki3",
+                "Pudding"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Pudding"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3",
+                "Nigiri2",
+                "Dumpling",
+                "Maki3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Pudding"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3",
+                "Nigiri2",
+                "Dumpling",
+                "Maki3",
+                "Maki2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks",
+                "Sashimi",
+                "Tempura",
+                "Nigiri1"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Chopsticks"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks",
+                "Sashimi",
+                "Tempura",
+                "Nigiri1",
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri2",
+                "Sashimi"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Nigiri2",
+                "Sashimi",
+                "Sashimi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Sashimi"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Nigiri2",
+                "Sashimi",
+                "Sashimi",
+                "Nigiri2"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Sashimi"
+              ],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding",
+                "Maki2",
+                "Maki2",
+                "Maki3",
+                "Pudding"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Tempura",
+                "Pudding",
+                "Pudding",
+                "Maki2",
+                "Maki2",
+                "Maki3",
+                "Pudding",
+                "Sashimi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Sashimi"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3",
+                "Nigiri2",
+                "Dumpling",
+                "Maki3",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Maki3",
+                "Nigiri2",
+                "Dumpling",
+                "Maki3",
+                "Maki2",
+                "Sashimi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Pudding"
+              ],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks",
+                "Sashimi",
+                "Tempura",
+                "Nigiri1",
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Dumpling",
+                "Pudding",
+                "Chopsticks",
+                "Sashimi",
+                "Tempura",
+                "Nigiri1",
+                "Tempura",
+                "Pudding"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Chopsticks"
+              ],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Nigiri2",
+                "Sashimi",
+                "Sashimi",
+                "Nigiri2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Nigiri2",
+                "Sashimi",
+                "Sashimi",
+                "Nigiri2",
+                "Chopsticks"
+              ]
+            }
+          }
+        ]
+      ],
+      "roundScores": [
+        3,
+        9,
+        7,
+        19
+      ],
+      "totalScores": [
+        3,
+        9,
+        7,
+        19
+      ],
+      "puddingCounts": [
+        3,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "roundMoves": [
+        [
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Maki3",
+                "Tempura",
+                "Maki2",
+                "Dumpling",
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki3",
+                "Tempura",
+                "Maki2",
+                "Dumpling",
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Maki2",
+                "Maki1",
+                "Dumpling",
+                "Maki1",
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Maki1",
+                "Dumpling",
+                "Maki1",
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Dumpling"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Pudding",
+                "Nigiri3",
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri3",
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Pudding"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Maki2",
+                "Maki1",
+                "Nigiri1",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Maki1",
+                "Nigiri1",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Maki1",
+                "Nigiri1",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki1",
+                "Nigiri1",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki3",
+                "Tempura",
+                "Maki2",
+                "Dumpling",
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura",
+                "Maki2",
+                "Dumpling",
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Maki1",
+                "Dumpling",
+                "Maki1",
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Pudding"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki1",
+                "Dumpling",
+                "Maki1",
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri3",
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Sashimi",
+                "Tempura",
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura",
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki1",
+                "Nigiri1",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri1",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Maki2",
+                "Dumpling",
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Dumpling",
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki1",
+                "Dumpling",
+                "Maki1",
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling",
+                "Maki1",
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Maki1",
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki1",
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi",
+                "Dumpling"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1",
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri1",
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura",
+                "Nigiri1"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Dumpling",
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling",
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1",
+                "Maki2"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi",
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi",
+                "Dumpling",
+                "Dumpling"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki1",
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1",
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1",
+                "Tempura",
+                "Maki1"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura",
+                "Nigiri1"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura",
+                "Nigiri1",
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1",
+                "Maki2",
+                "Maki2"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Maki3",
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi",
+                "Dumpling",
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi",
+                "Dumpling",
+                "Dumpling",
+                "Maki3"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Wasabi",
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1",
+                "Tempura",
+                "Maki1"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1",
+                "Tempura",
+                "Maki1",
+                "Wasabi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura",
+                "Nigiri1",
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura",
+                "Nigiri1",
+                "Tempura",
+                "Dumpling"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1",
+                "Maki2",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1",
+                "Maki2",
+                "Maki2",
+                "Dumpling"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Nigiri2",
+                "Tempura"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi",
+                "Dumpling",
+                "Dumpling",
+                "Maki3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi",
+                "Dumpling",
+                "Dumpling",
+                "Maki3",
+                "Nigiri2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1",
+                "Tempura",
+                "Maki1",
+                "Wasabi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1",
+                "Tempura",
+                "Maki1",
+                "Wasabi",
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri2",
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura",
+                "Nigiri1",
+                "Tempura",
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura",
+                "Nigiri1",
+                "Tempura",
+                "Dumpling",
+                "Nigiri2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Pudding",
+                "Nigiri1"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1",
+                "Maki2",
+                "Maki2",
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri1"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1",
+                "Maki2",
+                "Maki2",
+                "Dumpling",
+                "Pudding"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Nigiri1"
+              ],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi",
+                "Dumpling",
+                "Dumpling",
+                "Maki3",
+                "Nigiri2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Tempura",
+                "Maki2",
+                "Sashimi",
+                "Dumpling",
+                "Dumpling",
+                "Maki3",
+                "Nigiri2",
+                "Nigiri1"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura"
+              ],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1",
+                "Tempura",
+                "Maki1",
+                "Wasabi",
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Dumpling",
+                "Maki3",
+                "Maki1",
+                "Tempura",
+                "Maki1",
+                "Wasabi",
+                "Tempura",
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura",
+                "Nigiri1",
+                "Tempura",
+                "Dumpling",
+                "Nigiri2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Pudding",
+                "Maki2",
+                "Tempura",
+                "Nigiri1",
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Dumpling"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling"
+              ],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1",
+                "Maki2",
+                "Maki2",
+                "Dumpling",
+                "Pudding"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Dumpling",
+                "Nigiri3",
+                "Maki1",
+                "Maki2",
+                "Maki2",
+                "Dumpling",
+                "Pudding",
+                "Dumpling"
+              ]
+            }
+          }
+        ]
+      ],
+      "roundScores": [
+        8,
+        8,
+        11,
+        11
+      ],
+      "totalScores": [
+        11,
+        17,
+        18,
+        30
+      ],
+      "puddingCounts": [
+        3,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "roundMoves": [
+        [
+          {
+            "before": {
+              "hand": [
+                "Sashimi",
+                "Sashimi",
+                "Nigiri2",
+                "Nigiri1",
+                "Wasabi",
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Sashimi",
+                "Nigiri2",
+                "Nigiri1",
+                "Wasabi",
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Sashimi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Pudding",
+                "Dumpling",
+                "Dumpling",
+                "Dumpling",
+                "Maki2",
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling",
+                "Dumpling",
+                "Dumpling",
+                "Maki2",
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Pudding"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Pudding",
+                "Tempura",
+                "Tempura",
+                "Maki2",
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Pudding",
+                "Tempura",
+                "Tempura",
+                "Maki2",
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki3",
+                "Maki2",
+                "Nigiri2",
+                "Nigiri3",
+                "Nigiri3",
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": []
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Nigiri2",
+                "Nigiri3",
+                "Nigiri3",
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Maki3"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Nigiri2",
+                "Nigiri3",
+                "Nigiri3",
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Sashimi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri2",
+                "Nigiri3",
+                "Nigiri3",
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Sashimi",
+                "Nigiri2",
+                "Nigiri1",
+                "Wasabi",
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Pudding"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri2",
+                "Nigiri1",
+                "Wasabi",
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Dumpling",
+                "Dumpling",
+                "Maki2",
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling",
+                "Dumpling",
+                "Maki2",
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Pudding",
+                "Tempura",
+                "Tempura",
+                "Maki2",
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Maki3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura",
+                "Tempura",
+                "Maki2",
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Tempura",
+                "Maki2",
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Tempura",
+                "Maki2",
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri2",
+                "Nigiri3",
+                "Nigiri3",
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri3",
+                "Nigiri3",
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri2",
+                "Nigiri1",
+                "Wasabi",
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri1",
+                "Wasabi",
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Dumpling",
+                "Maki2",
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling",
+                "Maki2",
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Dumpling",
+                "Maki2",
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura",
+                "Dumpling"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Tempura",
+                "Maki2",
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2",
+                "Tempura"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri3",
+                "Nigiri3",
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri3",
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Nigiri3"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri1",
+                "Wasabi",
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Wasabi",
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling",
+                "Nigiri1"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Wasabi",
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura",
+                "Dumpling"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura",
+                "Dumpling",
+                "Wasabi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2",
+                "Tempura"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2",
+                "Tempura",
+                "Maki2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Nigiri3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Nigiri3",
+                "Maki2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri3",
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling",
+                "Nigiri1"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri3"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Wasabi",
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura",
+                "Dumpling",
+                "Wasabi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura",
+                "Dumpling",
+                "Wasabi",
+                "Wasabi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri3",
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2",
+                "Tempura",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2",
+                "Tempura",
+                "Maki2",
+                "Nigiri3"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki2",
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Nigiri3",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Nigiri3",
+                "Maki2",
+                "Maki2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Wasabi",
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri3",
+                "Wasabi"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Sashimi",
+                "Nigiri2"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura",
+                "Dumpling",
+                "Wasabi",
+                "Wasabi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri2"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura",
+                "Dumpling",
+                "Wasabi",
+                "Wasabi",
+                "Sashimi"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Maki3",
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2",
+                "Tempura",
+                "Maki2",
+                "Nigiri3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Dumpling"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2",
+                "Tempura",
+                "Maki2",
+                "Nigiri3",
+                "Maki3"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Chopsticks",
+                "Chopsticks"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Nigiri3",
+                "Maki2",
+                "Maki2"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Chopsticks"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Nigiri3",
+                "Maki2",
+                "Maki2",
+                "Chopsticks"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Wasabi",
+                "Nigiri3"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri3",
+                "Wasabi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [
+                "Nigiri3"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri3",
+                "Wasabi",
+                "Wasabi"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "before": {
+              "hand": [
+                "Nigiri3"
+              ],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura",
+                "Dumpling",
+                "Wasabi",
+                "Wasabi",
+                "Sashimi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Sashimi",
+                "Maki2",
+                "Tempura",
+                "Dumpling",
+                "Wasabi",
+                "Wasabi",
+                "Sashimi",
+                "Nigiri3"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Nigiri2"
+              ],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2",
+                "Tempura",
+                "Maki2",
+                "Nigiri3",
+                "Maki3"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Pudding",
+                "Sashimi",
+                "Nigiri2",
+                "Tempura",
+                "Maki2",
+                "Nigiri3",
+                "Maki3",
+                "Nigiri2"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Dumpling"
+              ],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Nigiri3",
+                "Maki2",
+                "Maki2",
+                "Chopsticks"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Tempura",
+                "Dumpling",
+                "Nigiri2",
+                "Nigiri3",
+                "Maki2",
+                "Maki2",
+                "Chopsticks",
+                "Dumpling"
+              ]
+            }
+          },
+          {
+            "before": {
+              "hand": [
+                "Chopsticks"
+              ],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri3",
+                "Wasabi",
+                "Wasabi"
+              ]
+            },
+            "chosenCardIndices": [
+              0
+            ],
+            "after": {
+              "hand": [],
+              "plate": [
+                "Maki3",
+                "Pudding",
+                "Dumpling",
+                "Nigiri1",
+                "Nigiri3",
+                "Wasabi",
+                "Wasabi",
+                "Chopsticks"
+              ]
+            }
+          }
+        ]
+      ],
+      "roundScores": [
+        10,
+        13,
+        11,
+        5
+      ],
+      "totalScores": [
+        21,
+        30,
+        29,
+        35
+      ],
+      "puddingCounts": [
+        3,
+        2,
+        3,
+        2
+      ]
+    }
+  ],
+  "puddingScores": [
+    3,
+    -3,
+    3,
+    -3
+  ],
+  "finalScores": [
+    24,
+    27,
+    32,
+    32
+  ]
+}
