@@ -23,7 +23,7 @@ function Game(props) {
                 <div className={'game-grid-header-cell'}>Pudding Count</div>
                 <div className={'game-grid-header-cell'}>Pudding Score</div>
                 <div className={'game-grid-header-cell'}>Final Score</div>
-                { getPlayerCells(props.gameData) }
+                { getPlayerCells(props.gameData, status) }
             </div>
         </div>
     )
@@ -61,23 +61,69 @@ function getStatusString(status) {
     return 'Round ' + stringRoundNumber + ', Move ' + stringMoveNumber + ', Stage ' + stringStageNumber;
 }
 
-function getPlayerCells(gameData) {
+function getPlayerCells(gameData, gameStatus) {
     let numOfPlayers = gameData.players.length;
     let res = [];
     for (let i = 0; i < numOfPlayers; i++) {
         let row = (
             <Fragment key={'player' + i + 'Row'}>
                 <div>{ gameData.players[i] }</div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div>{ getPlayerCards(gameData, gameStatus, i) }</div>
+                <div>{ getPlayerScore(gameData, gameStatus, i) }</div>
+                <div>{ getPlayerPuddingCount(gameData, gameStatus, i) }</div>
+                <div>{ getPlayerPuddingScore(gameData, gameStatus, i) }</div>
+                <div>{ getPlayerFinalScore(gameData, gameStatus, i) }</div>
             </Fragment>
         );
         res.push(row);
     }
     return res;
+}
+
+function getPlayerCards(gameData, gameStatus, playerIndex) {
+    if (gameStatus.isGameOver || gameStatus.isRoundOver) return null;
+    let playerMove = gameData.rounds[gameStatus.currentRound].roundMoves[gameStatus.currentMove][playerIndex];
+    let correctHandAndPlate = gameStatus.currentStageWithinMove < 2 ? playerMove.before : playerMove.after;
+    return (
+        <div className={'player-cards-w'}>
+            { getCardList(correctHandAndPlate.hand, []) }
+            { getCardList(correctHandAndPlate.plate, []) }
+        </div>
+    );
+}
+
+function getCardList(cards, selectedIndices) {
+    return (
+        <div className={'card-list-w'}>{ cards }</div>
+    );
+}
+
+function getPlayerScore(gameData, gameStatus, playerIndex) {
+    let numOfCompletedRounds = getNumOfCompletedRounds(gameStatus);
+    if (numOfCompletedRounds == 0) return 0;
+    return gameData.rounds[numOfCompletedRounds - 1].totalScores[playerIndex];
+}
+
+function getPlayerPuddingCount(gameData, gameStatus, playerIndex) {
+    let numOfCompletedRounds = getNumOfCompletedRounds(gameStatus);
+    if (numOfCompletedRounds == 0) return 0;
+    return gameData.rounds[numOfCompletedRounds - 1].puddingCounts[playerIndex];
+}
+
+function getPlayerPuddingScore(gameData, gameStatus, playerIndex) {
+    if (!gameStatus.isGameOver) return null;
+    return gameData.puddingScores[playerIndex];
+}
+
+function getPlayerFinalScore(gameData, gameStatus, playerIndex) {
+    if (!gameStatus.isGameOver) return null;
+    return gameData.finalScores[playerIndex];
+}
+
+function getNumOfCompletedRounds(gameStatus) {
+    if (gameStatus.isGameOver) return 3;
+    if (gameStatus.isRoundOver) return  gameStatus.currentRound + 1;
+    return gameStatus.currentRound;
 }
 
 function onKeyDown(e, state) {
@@ -117,7 +163,7 @@ function decreaseStatus(status) {
     if (updatedStatus.isGameOver) {
         updatedStatus.isGameOver = false;
         updatedStatus.isRoundOver = true;
-        updatedStatus.currentRound = 3;
+        updatedStatus.currentRound = 2;
         updatedStatus.currentMove = updatedStatus.movesPerRound - 1;
         updatedStatus.currentStageWithinMove = 2;
         return updatedStatus;
