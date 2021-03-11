@@ -1,0 +1,40 @@
+html {
+  height: 100%;
+  color: #142a59;
+}
+body {
+  min-height: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#root {
+  min-height: 100vh;
+  height: 100%;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  font-family: inherit;
+}
+::placeholder {
+  color: #c0c0c0;
+}
+@font-face {
+  font-family: 'Heebo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Heebo'), local('Heebo-Regular'), url(https://fonts.gstatic.com/s/heebo/v5/NGS6v5_NC0k9P9H0TbFzsQ.woff2) format('woff2');
+  unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+
+a {
+  text-decoration: none;
+}
+a, a:visited, a:active {
+  color: black;
+}
