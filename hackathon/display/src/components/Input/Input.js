@@ -11,7 +11,11 @@ function Input(props) {
 
 function onFileSelected(file, onGameDataLoaded) {
     let reader = new FileReader();
-    reader.onload = e => onGameDataLoaded(JSON.parse(e.target.result))
+    reader.onload = e => {
+        let gameData = JSON.parse(e.target.result);
+        console.log(gameData);
+        onGameDataLoaded(gameData);
+    };
     reader.readAsText(file);
 }
 
