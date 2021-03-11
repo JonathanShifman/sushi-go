@@ -45,6 +45,12 @@
 .card-w {
     box-sizing: border-box;
     margin: 0 4px;
+    width: 64px;
+    height: 96px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .selected-card-w {
     border: 2px solid black;

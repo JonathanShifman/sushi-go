@@ -58,8 +58,7 @@ function getStatusString(status) {
     let stringRoundNumber = status.currentRound + 1;
     if (status.isRoundOver) return 'Round ' + stringRoundNumber + ' End';
     let stringMoveNumber = status.currentMove + 1;
-    let stringStageNumber = status.currentStageWithinMove + 1;
-    return 'Round ' + stringRoundNumber + ', Move ' + stringMoveNumber + ', Stage ' + stringStageNumber;
+    return 'Round ' + stringRoundNumber + ', Move ' + stringMoveNumber;
 }
 
 function getPlayerCells(gameData, gameStatus) {
@@ -107,8 +106,8 @@ function getCardImages(cards, selectedIndices) {
         let card = cards[cardIndex];
         let className = selectedIndices.has(cardIndex) ? 'card-w selected-card-w' : 'card-w';
         res.push(
-            <div className={className}>
-                <img src={cardImages[card]} className={'card'} key={'card' + cardIndex} />
+            <div className={className} key={'card' + cardIndex}>
+                <img src={cardImages[card]} className={'card'} />
             </div>
         );
     }
