@@ -1,3 +1,5 @@
 #app-w {
-
+    min-height: 100%;
+    display: flex;
+    font-family: Verdana;
 }

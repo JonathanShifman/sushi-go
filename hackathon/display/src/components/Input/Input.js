@@ -2,7 +2,11 @@ import React from 'react';
 import './Input.css';
 
 function Input(props) {
-    return <input type={'file'} onChange={e => onFileSelected(e.target.files[0], props.onGameDataLoaded)} />;
+    return (
+        <div id={'input-w'}>
+            <input type={'file'} onChange={e => onFileSelected(e.target.files[0], props.onGameDataLoaded)} />
+        </div>
+    );
 }
 
 function onFileSelected(file, onGameDataLoaded) {

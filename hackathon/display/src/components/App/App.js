@@ -9,7 +9,11 @@ function App() {
         gameData, setGameData
     };
 
-    return getAppropriateView(state);
+    return (
+        <div id={'app-w'}>
+            { getAppropriateView(state) }
+        </div>
+    );
 }
 
 function getAppropriateView(state) {
