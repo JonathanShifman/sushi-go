@@ -46,7 +46,7 @@ cards_per_player = 12 - num_of_players
 total_scores = [0 for i in range(num_of_players)]
 total_pudding_counts = [0 for i in range(num_of_players)]
 
-game = {'players': ['Player' for player in players], 'rounds': []}
+game = {'players': [player.get_name() for player in players], 'rounds': []}
 
 for round_index in range(3):
     print('Round ' + str(round_index + 1))

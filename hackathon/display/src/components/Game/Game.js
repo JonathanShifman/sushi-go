@@ -18,7 +18,7 @@ function Game(props) {
         <div id={'game-w'}>
             { getStatusDiv(status) }
             <div id={'game-grid-w'}>
-                <div className={'game-grid-cell game-grid-header-cell'}>Player</div>
+                <div className={'game-grid-cell game-grid-header-cell'}>Name</div>
                 <div className={'game-grid-cell game-grid-header-cell'}>Cards</div>
                 <div className={'game-grid-cell game-grid-header-cell'}>Score</div>
                 <div className={'game-grid-cell game-grid-header-cell'}>Pudding Count</div>
