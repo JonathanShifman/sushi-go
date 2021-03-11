@@ -1,5 +1,6 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import './Game.css';
+import cardImages from '../../utils/cards';
 
 function Game(props) {
     let [status, setStatus] = useState(getInitialStatus(props.gameData));
@@ -17,12 +18,12 @@ function Game(props) {
         <div id={'game-w'}>
             { getStatusDiv(status) }
             <div id={'game-grid-w'}>
-                <div className={'game-grid-header-cell'}>Player</div>
-                <div className={'game-grid-header-cell'}>Cards</div>
-                <div className={'game-grid-header-cell'}>Score</div>
-                <div className={'game-grid-header-cell'}>Pudding Count</div>
-                <div className={'game-grid-header-cell'}>Pudding Score</div>
-                <div className={'game-grid-header-cell'}>Final Score</div>
+                <div className={'game-grid-cell game-grid-header-cell'}>Player</div>
+                <div className={'game-grid-cell game-grid-header-cell'}>Cards</div>
+                <div className={'game-grid-cell game-grid-header-cell'}>Score</div>
+                <div className={'game-grid-cell game-grid-header-cell'}>Pudding Count</div>
+                <div className={'game-grid-cell game-grid-header-cell'}>Pudding Score</div>
+                <div className={'game-grid-cell game-grid-header-cell'}>Final Score</div>
                 { getPlayerCells(props.gameData, status) }
             </div>
         </div>
@@ -67,12 +68,12 @@ function getPlayerCells(gameData, gameStatus) {
     for (let i = 0; i < numOfPlayers; i++) {
         let row = (
             <Fragment key={'player' + i + 'Row'}>
-                <div>{ gameData.players[i] }</div>
-                <div>{ getPlayerCards(gameData, gameStatus, i) }</div>
-                <div>{ getPlayerScore(gameData, gameStatus, i) }</div>
-                <div>{ getPlayerPuddingCount(gameData, gameStatus, i) }</div>
-                <div>{ getPlayerPuddingScore(gameData, gameStatus, i) }</div>
-                <div>{ getPlayerFinalScore(gameData, gameStatus, i) }</div>
+                <div className={'game-grid-cell'}>{ gameData.players[i] }</div>
+                <div className={'game-grid-cell'}>{ getPlayerCards(gameData, gameStatus, i) }</div>
+                <div className={'game-grid-cell'}>{ getPlayerScore(gameData, gameStatus, i) }</div>
+                <div className={'game-grid-cell'}>{ getPlayerPuddingCount(gameData, gameStatus, i) }</div>
+                <div className={'game-grid-cell'}>{ getPlayerPuddingScore(gameData, gameStatus, i) }</div>
+                <div className={'game-grid-cell'}>{ getPlayerFinalScore(gameData, gameStatus, i) }</div>
             </Fragment>
         );
         res.push(row);
@@ -81,21 +82,37 @@ function getPlayerCells(gameData, gameStatus) {
 }
 
 function getPlayerCards(gameData, gameStatus, playerIndex) {
-    if (gameStatus.isGameOver || gameStatus.isRoundOver) return null;
+    if (gameStatus.isGameOver || gameStatus.isRoundOver) return <div className={'player-cards-w'}></div>;
     let playerMove = gameData.rounds[gameStatus.currentRound].roundMoves[gameStatus.currentMove][playerIndex];
     let correctHandAndPlate = gameStatus.currentStageWithinMove < 2 ? playerMove.before : playerMove.after;
+    let selectedIndices = new Set();
+    if (gameStatus.currentStageWithinMove == 1) selectedIndices = new Set(playerMove.chosenCardIndices);
     return (
         <div className={'player-cards-w'}>
-            { getCardList(correctHandAndPlate.hand, []) }
-            { getCardList(correctHandAndPlate.plate, []) }
+            { getCardList(correctHandAndPlate.hand, selectedIndices) }
+            { getCardList(correctHandAndPlate.plate, new Set()) }
         </div>
     );
 }
 
 function getCardList(cards, selectedIndices) {
     return (
-        <div className={'card-list-w'}>{ cards }</div>
+        <div className={'card-list-w'}>{ getCardImages(cards, selectedIndices) }</div>
     );
+}
+
+function getCardImages(cards, selectedIndices) {
+    let res = [];
+    for (let cardIndex = 0; cardIndex < cards.length; cardIndex++) {
+        let card = cards[cardIndex];
+        let className = selectedIndices.has(cardIndex) ? 'card-w selected-card-w' : 'card-w';
+        res.push(
+            <div className={className}>
+                <img src={cardImages[card]} className={'card'} key={'card' + cardIndex} />
+            </div>
+        );
+    }
+    return res;
 }
 
 function getPlayerScore(gameData, gameStatus, playerIndex) {
@@ -183,6 +200,7 @@ function decreaseStatus(status) {
         }
         updatedStatus.currentMove--;
         updatedStatus.currentStageWithinMove = 2;
+        return updatedStatus;
     }
     updatedStatus.currentStageWithinMove--;
     return updatedStatus;
