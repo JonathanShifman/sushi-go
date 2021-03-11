@@ -42,7 +42,7 @@ print('---------------------')
 deck = Deck()
 players = [RandomPlayer, RandomPlayer, RandomPlayer, RandomPlayer]
 num_of_players = len(players)
-cards_per_player = 8
+cards_per_player = 12 - num_of_players
 total_scores = [0 for i in range(num_of_players)]
 total_pudding_counts = [0 for i in range(num_of_players)]
 
