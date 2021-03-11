@@ -117,5 +117,5 @@ game['puddingScores'] = pudding_scores
 game['finalScores'] = total_scores
 
 json_string = json.dumps(game)
-with open('output.json', 'w') as f:
+with open('output/game.json', 'w') as f:
     f.write(json_string)
