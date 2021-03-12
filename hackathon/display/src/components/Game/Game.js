@@ -123,7 +123,7 @@ function getPlayerScore(gameData, gameStatus, playerIndex) {
 function getPlayerPuddingCount(gameData, gameStatus, playerIndex) {
     let numOfCompletedRounds = getNumOfCompletedRounds(gameStatus);
     if (numOfCompletedRounds == 0) return 0;
-    return gameData.rounds[numOfCompletedRounds - 1].puddingCounts[playerIndex];
+    return gameData.rounds[numOfCompletedRounds - 1].totalPuddingCounts[playerIndex];
 }
 
 function getPlayerPuddingScore(gameData, gameStatus, playerIndex) {

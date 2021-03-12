@@ -112,7 +112,7 @@ def get_pudding_scores(pudding_counts):
     points_for_pudding_loser = -math.floor(6 / num_of_pudding_losers)
     for i in range(len(pudding_counts)):
         if pudding_counts[i] == pudding_winner_count:
-            pudding_scores[i] = points_for_pudding_winner
+            pudding_scores[i] += points_for_pudding_winner
         if pudding_counts[i] == pudding_loser_count:
-            pudding_scores[i] = points_for_pudding_loser
+            pudding_scores[i] += points_for_pudding_loser
     return pudding_scores

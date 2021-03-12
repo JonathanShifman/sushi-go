@@ -2,6 +2,7 @@ import RandomPlayer
 from Cards import Cards
 import Scoring
 import Logging
+import KnowledgeFilter
 from Deck import Deck
 import json
 
@@ -35,10 +36,6 @@ def validate_chosen_card_indices(hand, plate, chosen_card_indices):
         return chosen_card_indices
     return [0]
 
-
-
-print('Starting Game')
-print('---------------------')
 deck = Deck()
 players = [RandomPlayer, RandomPlayer, RandomPlayer, RandomPlayer]
 num_of_players = len(players)
@@ -46,11 +43,15 @@ cards_per_player = 12 - num_of_players
 total_scores = [0 for i in range(num_of_players)]
 total_pudding_counts = [0 for i in range(num_of_players)]
 
-game = {'players': [player.get_name() for player in players], 'rounds': []}
+game_history = {'players': [player.get_name() for player in players], 'rounds': []}
 
 for round_index in range(3):
-    print('Round ' + str(round_index + 1))
-    json_round_moves = []
+    round_moves_history = []
+    round_history = {
+        'roundMoves': round_moves_history
+    }
+    game_history['rounds'].append(round_history)
+
     hands = []
     for hand_index in range(num_of_players):
         hand = []
@@ -59,19 +60,19 @@ for round_index in range(3):
         hands.append(hand)
     plates = [[] for i in range(num_of_players)]
     while len(hands[0]) > 0:
-        json_player_moves = []
+        move_history = []
         for player_index in range(num_of_players):
-            json_player_move = {}
+            player_move_history = {}
             player = players[player_index]
             hand = hands[player_index]
             plate = plates[player_index]
-            json_player_move['before'] = {
+            player_move_history['before'] = {
                 'hand': Logging.cards_to_names(hand),
                 'plate': Logging.cards_to_names(plate),
             }
-            chosen_card_indices = player.play(None)
+            chosen_card_indices = player.play(KnowledgeFilter.filter_game_knowledge(game_history, player_index, hand))
             chosen_card_indices = validate_chosen_card_indices(hand, plate, chosen_card_indices)
-            json_player_move['chosenCardIndices'] = chosen_card_indices
+            player_move_history['chosenCardIndices'] = chosen_card_indices
             if len(chosen_card_indices) == 1:
                 chosen_card_index = chosen_card_indices[0]
                 plate.append(hand[chosen_card_index])
@@ -83,39 +84,28 @@ for round_index in range(3):
                 plate.append(hand[chosen_card_indices[1]])
                 for chosen_card_index in sorted(chosen_card_indices, reverse=True):
                     del hand[chosen_card_index]
-            json_player_move['after'] = {
+            player_move_history['after'] = {
                 'hand': Logging.cards_to_names(hand),
                 'plate': Logging.cards_to_names(plate),
             }
-            json_player_moves.append(json_player_move)
+            move_history.append(player_move_history)
         hands = rotate_hands(hands)
-        json_round_moves.append(json_player_moves)
-    for plate in plates:
-        print(Logging.plate_to_str(plate))
+        round_moves_history.append(move_history)
     round_scores = Scoring.get_player_scores(plates)
-    print('Round Scores: ' + str(round_scores))
     total_scores = [sum(scores) for scores in zip(total_scores, round_scores)]
-    print('Current Total Scores: ' + str(total_scores))
     round_pudding_counts = Scoring.get_round_pudding_counts(plates)
-    print('Round Pudding Counts: ' + str(round_pudding_counts))
     total_pudding_counts = [sum(counts) for counts in zip(total_pudding_counts, round_pudding_counts)]
-    print('Current Total Pudding Counts: ' + str(total_pudding_counts))
-    print('---------------------')
-    json_round = {
-        'roundMoves': json_round_moves,
-        'roundScores': round_scores,
-        'totalScores': total_scores,
-        'puddingCounts': total_pudding_counts,
-    }
-    game['rounds'].append(json_round)
+    round_history['roundScores'] = round_scores
+    round_history['totalScores'] = total_scores
+    round_history['roundPuddingCounts'] = round_pudding_counts
+    round_history['totalPuddingCounts'] = total_pudding_counts
 
 pudding_scores = Scoring.get_pudding_scores(total_pudding_counts)
-print('Pudding Scores: ' + str(pudding_scores))
-total_scores = [sum(scores) for scores in zip(total_scores, pudding_scores)]
-print('Final Scores: ' + str(total_scores))
-game['puddingScores'] = pudding_scores
-game['finalScores'] = total_scores
+final_scores = [sum(scores) for scores in zip(total_scores, pudding_scores)]
+game_history['puddingScores'] = pudding_scores
+game_history['finalScores'] = final_scores
+Logging.log_game_output(game_history)
 
-json_string = json.dumps(game)
+json_string = json.dumps(game_history)
 with open('output/game.json', 'w') as f:
     f.write(json_string)
