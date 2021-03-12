@@ -81,7 +81,16 @@ function getPlayerCells(gameData, gameStatus) {
 }
 
 function getPlayerCards(gameData, gameStatus, playerIndex) {
-    if (gameStatus.isGameOver || gameStatus.isRoundOver) return <div className={'player-cards-w'}></div>;
+    if (gameStatus.isGameOver) return <div className={'player-cards-w'}></div>;
+    if (gameStatus.isRoundOver) {
+        let playerLastMove = gameData.rounds[gameStatus.currentRound].roundMoves[gameStatus.movesPerRound - 1][playerIndex];
+        return (
+            <div className={'player-cards-w'}>
+                { getCardList([], new Set()) }
+                { getCardList(playerLastMove.afterAction.plate, new Set()) }
+            </div>
+        );
+    }
     let playerMove = gameData.rounds[gameStatus.currentRound].roundMoves[gameStatus.currentMove][playerIndex];
     let correctHandAndPlate = gameStatus.currentStageWithinMove < 2 ? playerMove.beforeAction : playerMove.afterAction;
     let selectedIndices = new Set();
