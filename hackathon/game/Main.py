@@ -7,6 +7,15 @@ from Deck import Deck
 import json
 
 
+def draw_hands(deck, num_of_players):
+    hands = []
+    for hand_index in range(num_of_players):
+        hand = []
+        for card_index in range(cards_per_player):
+            hand.append(deck.draw_card())
+        hands.append(hand)
+    return hands
+
 def rotate_hands(hands):
     return [hands[i-1] for i in range(len(hands))]
 
@@ -16,7 +25,7 @@ def is_chosen_card_index_within_hand(chosen_card_index, hand):
 
 
 def find_chopsticks_index(plate):
-    for card_index in len(range(plate)):
+    for card_index in range(len(plate)):
         if plate[card_index] == Cards.Chopsticks:
             return card_index
     return None
@@ -52,12 +61,7 @@ for round_index in range(3):
     }
     game_history['rounds'].append(round_history)
 
-    hands = []
-    for hand_index in range(num_of_players):
-        hand = []
-        for card_index in range(cards_per_player):
-            hand.append(deck.draw_card())
-        hands.append(hand)
+    hands = draw_hands(deck, num_of_players)
     plates = [[] for i in range(num_of_players)]
     while len(hands[0]) > 0:
         move_history = []
@@ -66,11 +70,11 @@ for round_index in range(3):
             player = players[player_index]
             hand = hands[player_index]
             plate = plates[player_index]
-            player_move_history['before'] = {
+            player_move_history['beforeAction'] = {
                 'hand': Logging.cards_to_names(hand),
                 'plate': Logging.cards_to_names(plate),
             }
-            chosen_card_indices = player.play(KnowledgeFilter.filter_game_knowledge(game_history, player_index, hand))
+            chosen_card_indices = player.play(KnowledgeFilter.filter_game_knowledge(game_history, player_index, hand, plate))
             chosen_card_indices = validate_chosen_card_indices(hand, plate, chosen_card_indices)
             player_move_history['chosenCardIndices'] = chosen_card_indices
             if len(chosen_card_indices) == 1:
@@ -84,7 +88,8 @@ for round_index in range(3):
                 plate.append(hand[chosen_card_indices[1]])
                 for chosen_card_index in sorted(chosen_card_indices, reverse=True):
                     del hand[chosen_card_index]
-            player_move_history['after'] = {
+                hand.append(Cards.Chopsticks)
+            player_move_history['afterAction'] = {
                 'hand': Logging.cards_to_names(hand),
                 'plate': Logging.cards_to_names(plate),
             }

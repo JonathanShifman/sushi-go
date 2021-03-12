@@ -67,7 +67,7 @@ def log_game_output(game_history):
         round_history = game_history['rounds'][round_index]
         last_move = round_history['roundMoves'][-1]
         for player_move in last_move:
-            print(plate_to_str(player_move['after']['plate']))
+            print(plate_to_str(player_move['afterAction']['plate']))
         print('Round Scores: ' + str(round_history['roundScores']))
         print('Current Total Scores: ' + str(round_history['totalScores']))
         print('Round Pudding Counts: ' + str(round_history['roundPuddingCounts']))

@@ -83,7 +83,7 @@ function getPlayerCells(gameData, gameStatus) {
 function getPlayerCards(gameData, gameStatus, playerIndex) {
     if (gameStatus.isGameOver || gameStatus.isRoundOver) return <div className={'player-cards-w'}></div>;
     let playerMove = gameData.rounds[gameStatus.currentRound].roundMoves[gameStatus.currentMove][playerIndex];
-    let correctHandAndPlate = gameStatus.currentStageWithinMove < 2 ? playerMove.before : playerMove.after;
+    let correctHandAndPlate = gameStatus.currentStageWithinMove < 2 ? playerMove.beforeAction : playerMove.afterAction;
     let selectedIndices = new Set();
     if (gameStatus.currentStageWithinMove == 1) selectedIndices = new Set(playerMove.chosenCardIndices);
     return (
