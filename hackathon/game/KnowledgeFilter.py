@@ -31,6 +31,7 @@ def filter_rounds_knowledge(round_histories, player_index):
 def filter_game_knowledge(game_history, player_index, current_hand, current_plate):
     return {
         'players': game_history['players'],
+        'playerIndex': player_index,
         'currentHand': current_hand,
         'currentPlate': current_plate,
         'rounds': filter_rounds_knowledge(game_history['rounds'], player_index)
