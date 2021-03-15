@@ -6,6 +6,28 @@ import KnowledgeFilter
 from Deck import Deck
 import json
 
+should_load_deck_from_input = False
+
+def load_deck_from_file():
+    with open('input/deck.txt', 'r') as f:
+        deck_lines = f.readlines()
+    cards = [Logging.name_to_card(deck_line.strip()) for deck_line in deck_lines]
+    return Deck(cards)
+
+
+def write_deck_to_file(deck):
+    lines = [Logging.card_to_name(card) + '\n' for card in deck.cards]
+    with open('output/deck.txt', 'w') as f:
+        f.writelines(lines)
+
+
+def create_deck(should_load_from_input):
+    if should_load_from_input:
+        return load_deck_from_file()
+    deck = Deck()
+    write_deck_to_file(deck)
+    return deck
+
 
 def draw_hands(deck, num_of_players):
     hands = []
@@ -45,7 +67,7 @@ def validate_chosen_card_indices(hand, plate, chosen_card_indices):
         return chosen_card_indices
     return [0]
 
-deck = Deck()
+deck = create_deck(should_load_deck_from_input)
 players = [RandomPlayer, RandomPlayer, RandomPlayer, RandomPlayer]
 num_of_players = len(players)
 cards_per_player = 12 - num_of_players

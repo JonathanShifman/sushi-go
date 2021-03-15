@@ -16,18 +16,24 @@ card_quantities = {
     Cards.Chopsticks: 4,
 }
 
+def init_random_deck_cards():
+    cards = []
+    for card in Cards:
+        for i in range(card_quantities[card]):
+            cards.append(card)
+    random.shuffle(cards)
+    return cards
+
 class Deck:
 
-    def __init__(self):
-        deck = []
-        for card in Cards:
-            for i in range(card_quantities[card]):
-                deck.append(card)
-        random.shuffle(deck)
-        self.deck = deck
+    def __init__(self, cards=None):
+        if cards is None:
+            self.cards = init_random_deck_cards()
+        else:
+            self.cards = cards
         self.deck_pointer = 0
 
     def draw_card(self):
-        drawn_card = self.deck[self.deck_pointer]
+        drawn_card = self.cards[self.deck_pointer]
         self.deck_pointer += 1
         return drawn_card

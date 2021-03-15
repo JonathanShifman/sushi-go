@@ -1,1 +1,3 @@
 output/*.json
+output/*.txt
+input/*.txt
