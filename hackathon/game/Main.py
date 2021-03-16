@@ -6,8 +6,9 @@ import Scoring
 from Cards import Cards
 from Deck import Deck
 from players.RandomPlayer import RandomPlayer
+import YoniPlayer
 
-should_load_deck_from_input = False
+should_load_deck_from_input = True
 
 
 def load_deck_from_file() -> Deck:
@@ -148,4 +149,4 @@ def play_single_game(game_name: str, players: list):
 
 
 if __name__ == '__main__':
-    play_single_game(game_name='game', players=[RandomPlayer(), RandomPlayer(), RandomPlayer(), RandomPlayer()])
+    play_single_game(game_name='game', players=[YoniPlayer, YoniPlayer, YoniPlayer, YoniPlayer])
