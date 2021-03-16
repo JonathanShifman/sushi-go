@@ -138,7 +138,7 @@ def play_single_game(game_name: str, players: list):
     final_scores = [sum(scores) for scores in zip(total_scores, pudding_scores)]
     game_history['puddingScores'] = pudding_scores
     game_history['finalScores'] = final_scores
-    Logging.log_game_output(game_history)
+    # Logging.log_game_output(game_history)
 
     for round in game_history['rounds']:
         del round['plates']

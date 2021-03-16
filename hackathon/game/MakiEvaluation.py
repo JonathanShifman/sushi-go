@@ -39,13 +39,13 @@ def calc_makis_required_to_win(makis_on_plates, remaining_makis, my_index):
             return 0
         diff = current_highest_plate - second_highest
         remaining_makis -= diff
-        return math.ceil(remaining_makis / 2)
+        return current_highest_plate + math.ceil(remaining_makis / 2)
     my_makis = makis_on_plates[my_index]
     diff = current_highest_plate - my_makis
     if diff >= remaining_makis:
         return diff
     remaining_makis -= diff
-    return math.ceil(remaining_makis / 2)
+    return current_highest_plate + math.ceil(remaining_makis / 2)
 
 
 def get_maki_value(game_knowledge, hand_estimations):
@@ -68,8 +68,9 @@ def get_maki_value(game_knowledge, hand_estimations):
 
     makis_on_plates = [count_makis_on_plate(plate) for plate in game_knowledge['rounds'][-1]['plates']]
     makis_required_to_win = calc_makis_required_to_win(makis_on_plates, total_maki, game_knowledge['playerIndex'])
-    if makis_required_to_win <= 0:
+    missing_makis = makis_required_to_win - makis_on_plates[game_knowledge['playerIndex']]
+    if missing_makis <= 0:
         return 0
 
-    potential_step_ratio = min(1.0, strongest_maki / makis_required_to_win)
+    potential_step_ratio = min(1.0, strongest_maki / missing_makis)
     return potential_step_ratio * 4.5
