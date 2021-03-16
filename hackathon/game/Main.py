@@ -1,27 +1,29 @@
-import RandomPlayer
-from Cards import Cards
-import Scoring
-import Logging
-import KnowledgeFilter
-from Deck import Deck
 import json
+
+import KnowledgeFilter
+import Logging
+import Scoring
+from Cards import Cards
+from Deck import Deck
+from players.RandomPlayer import RandomPlayer
 
 should_load_deck_from_input = False
 
-def load_deck_from_file():
+
+def load_deck_from_file() -> Deck:
     with open('input/deck.txt', 'r') as f:
         deck_lines = f.readlines()
     cards = [Logging.name_to_card(deck_line.strip()) for deck_line in deck_lines]
     return Deck(cards)
 
 
-def write_deck_to_file(deck):
+def write_deck_to_file(deck: Deck):
     lines = [Logging.card_to_name(card) + '\n' for card in deck.cards]
     with open('output/deck.txt', 'w') as f:
         f.writelines(lines)
 
 
-def create_deck(should_load_from_input):
+def create_deck(should_load_from_input: bool) -> Deck:
     if should_load_from_input:
         return load_deck_from_file()
     deck = Deck()
@@ -29,7 +31,7 @@ def create_deck(should_load_from_input):
     return deck
 
 
-def draw_hands(deck, num_of_players):
+def draw_hands(deck: Deck, num_of_players: int, cards_per_player: int) -> list:
     hands = []
     for hand_index in range(num_of_players):
         hand = []
@@ -38,8 +40,9 @@ def draw_hands(deck, num_of_players):
         hands.append(hand)
     return hands
 
+
 def rotate_hands(hands):
-    return [hands[i-1] for i in range(len(hands))]
+    return [hands[i - 1] for i in range(len(hands))]
 
 
 def is_chosen_card_index_within_hand(chosen_card_index, hand):
@@ -61,24 +64,24 @@ def validate_chosen_card_indices(hand, plate, chosen_card_indices):
             return chosen_card_indices
         return [0]
     if find_chopsticks_index(plate) is not None \
-    and is_chosen_card_index_within_hand(chosen_card_indices[0], hand) \
-    and is_chosen_card_index_within_hand(chosen_card_indices[1], hand) \
-    and chosen_card_indices[0] != chosen_card_indices[1]:
+            and is_chosen_card_index_within_hand(chosen_card_indices[0], hand) \
+            and is_chosen_card_index_within_hand(chosen_card_indices[1], hand) \
+            and chosen_card_indices[0] != chosen_card_indices[1]:
         return chosen_card_indices
     return [0]
 
-deck = create_deck(should_load_deck_from_input)
-players = [RandomPlayer, RandomPlayer, RandomPlayer, RandomPlayer]
-num_of_players = len(players)
-cards_per_player = 12 - num_of_players
-total_scores = [0 for i in range(num_of_players)]
-total_pudding_counts = [0 for i in range(num_of_players)]
 
-game_history = {'players': [player.get_name() for player in players], 'rounds': []}
+def play_single_game(game_name: str, players: list):
+    deck = create_deck(should_load_deck_from_input)
+    num_of_players = len(players)
+    cards_per_player = 12 - num_of_players
+    total_scores = [0 for _ in range(num_of_players)]
+    total_pudding_counts = [0 for _ in range(num_of_players)]
+
+    game_history = {'players': [player.get_name() for player in players], 'rounds': []}
 
 for round_index in range(3):
-    plates = [[] for i in range(num_of_players)]
-    round_moves_history = []
+    plates = [[] for i in range(num_of_players)]round_moves_history = []
     round_history = {
         'roundMoves': round_moves_history,
         'plates': plates
@@ -129,12 +132,16 @@ for round_index in range(3):
     round_history['roundPuddingCounts'] = round_pudding_counts
     round_history['totalPuddingCounts'] = total_pudding_counts
 
-pudding_scores = Scoring.get_pudding_scores(total_pudding_counts)
-final_scores = [sum(scores) for scores in zip(total_scores, pudding_scores)]
-game_history['puddingScores'] = pudding_scores
-game_history['finalScores'] = final_scores
-Logging.log_game_output(game_history)
+    pudding_scores = Scoring.get_pudding_scores(total_pudding_counts)
+    final_scores = [sum(scores) for scores in zip(total_scores, pudding_scores)]
+    game_history['puddingScores'] = pudding_scores
+    game_history['finalScores'] = final_scores
+    Logging.log_game_output(game_history)
 
 json_string = json.dumps(game_history)
-with open('output/game.json', 'w') as f:
-    f.write(json_string)
+with open('output/' + game_name + '.json', 'w') as f:
+    f.write(json_string)return game_history
+
+
+if __name__ == '__main__':
+    play_single_game(game_name='game', players=[RandomPlayer(), RandomPlayer(), RandomPlayer(), RandomPlayer()])
