@@ -1,6 +1,6 @@
 from Cards import Cards
 from Deck import card_quantities
-from Scoring import count_card_occurrences
+from Scoring import count_card_occurrences, get_player_score_from_dumplings
 from evaluations.CardEvaluations import isCardOfType
 from evaluations.GameEvaluations import extract_current_hand, count_unseen_cards_in_deck, count_unseen_cards_in_round, \
     extract_current_plate, count_players, extract_latest_plates, count_cards_in_hand
@@ -32,6 +32,7 @@ chance_of_opponent_to_spare = {
     Cards.Nigiri1: 0.95,
     Cards.Nigiri2: 0.85,
     Cards.Nigiri3: 0.5,
+    Cards.Dumpling: 0.75,
 }
 
 APRIORY_PLAYER = GreedyPlayer(lambda card: card_apriori_values[card], "April")
@@ -50,8 +51,8 @@ def estimate_card_in_other_hands(game_knowledge, desired_card: Cards):
     amount_in_hand = count_card_occurrences(extract_current_hand(game_knowledge), desired_card)
     observed_instances = count_observed_instances(game_knowledge, desired_card)
     chance_of_single_appearance = (card_quantities[desired_card] - observed_instances) / unseen_cards_in_deck
-    return amount_in_hand - observed_instances \
-           + (unseen_cards_in_round * chance_of_single_appearance)
+    return max(0, amount_in_hand - observed_instances \
+                  + (unseen_cards_in_round * chance_of_single_appearance))
 
 
 def chances_of_completing_set(game_knowledge, card_of_set: Cards):
@@ -86,7 +87,21 @@ def calculate_future_nigiri_expectancy(game_knowledge):
 
 
 def evaluate_chopsticks(turn_state):
-    return 0 if count_cards_in_hand(turn_state) <= count_players(turn_state) else card_apriori_values[Cards.Chopsticks]
+    turn_to_player_ratio = count_cards_in_hand(turn_state) / count_players(turn_state)
+    return card_apriori_values[Cards.Chopsticks] * int(turn_to_player_ratio)
+
+
+def evaluate_dumplings(game_knowledge):
+    estimation_for_other_hands = estimate_card_in_other_hands(game_knowledge, Cards.Dumpling)
+    amount_in_hand = count_card_occurrences(extract_current_hand(game_knowledge), Cards.Dumpling)
+    dumpling_taken_now = 1 if amount_in_hand > 0 else 0
+    estimated_dumpling_grab = max(1,
+        int(dumpling_taken_now + (estimation_for_other_hands + amount_in_hand - dumpling_taken_now) *
+            chance_of_opponent_to_spare[Cards.Dumpling]))
+    expected_plate = extract_current_plate(game_knowledge) + \
+                     ([Cards.Dumpling] * estimated_dumpling_grab)
+    return min(3.0,
+        get_player_score_from_dumplings(expected_plate) / estimated_dumpling_grab) + 0.1
 
 
 class DeckAwarePlayer(GreedyPlayer):
@@ -101,6 +116,8 @@ class DeckAwarePlayer(GreedyPlayer):
                 return calculate_future_nigiri_expectancy(turn_state)
             elif card == Cards.Chopsticks:
                 return evaluate_chopsticks(turn_state)
+            elif card == Cards.Dumpling:
+                return evaluate_dumplings(turn_state)
             else:
                 return card_apriori_values[card]
 

@@ -1,10 +1,12 @@
 import pytest
 
 from Main import play_single_game
+from VasiPlayer import GeneticPlayer
 from evaluations.GameEvaluations import determine_winner_index, TOTAL_CARDS_IN_DECK
 from players.BayesianPlayer import *
 from players.BayesianPlayer import chances_of_completing_set, estimate_card_in_other_hands
 from players.RandomPlayer import RandomPlayer
+from players.yoni import YoniPlayer
 from tests.GameStateBuilder import FillerCardGameBuilder
 
 
@@ -68,6 +70,28 @@ class TestBayesianPlayers(object):
             victories += 1 if determine_winner_index(result) == 1 else 0
         print('victory ratio was: ' + str(victories))
         assert victories > amount_of_games * 0.75
+
+    @staticmethod
+    def test_whenFacedWithYoniPlayer_DeckAwarePlayerWinsInMajorityOfCases():
+        victories = 0
+        amount_of_games = 100
+        for game_round in range(amount_of_games):
+            result = play_single_game('test_yoni_vs_dexter' + str(game_round), [YoniPlayer, DECK_AWARE_PLAYER],
+                should_load_from_input=False, should_log_results=False)
+            victories += 1 if determine_winner_index(result) == 1 else 0
+        print('victory ratio was: ' + str(victories))
+        assert victories > amount_of_games * 0.5
+
+    @staticmethod
+    def test_whenFacedWithVasiPlayer_DeckAwarePlayerWinsInMajorityOfCases():
+        victories = 0
+        amount_of_games = 100
+        for game_round in range(amount_of_games):
+            result = play_single_game('test_vasi_vs_dexter' + str(game_round), [GeneticPlayer(), DECK_AWARE_PLAYER],
+                should_load_from_input=False, should_log_results=False)
+            victories += 1 if determine_winner_index(result) == 1 else 0
+        print('victory ratio was: ' + str(victories))
+        assert victories > amount_of_games * 0.5
 
 
 class TestBayesianReasoning(object):
@@ -189,6 +213,23 @@ class TestBayesianReasoning(object):
             .build()
 
         assert evaluate_chopsticks(game_state) < card_apriori_values[Cards.Nigiri1]
+
+    def test_whenSeesAbundanceOfDumplings_thenDumplingValueExceedsTempura(self):
+        game_state = FillerCardGameBuilder() \
+            .set_hand_size(8) \
+            .set_filler_card(Cards.Dumpling) \
+            .pass_turns(1) \
+            .build()
+
+        assert evaluate_dumplings(game_state) > card_apriori_values[Cards.Tempura]
+
+    def test_dumplingsAreAlwaysPreferrableToNigiri1(self):
+        game_state = FillerCardGameBuilder() \
+            .set_hand_size(9) \
+            .substitute_cards_into_hand([Cards.Dumpling]) \
+            .build()
+
+        assert evaluate_dumplings(game_state) > card_apriori_values[Cards.Nigiri1]
 
 
 class TestDeckAwareChoices(object):
