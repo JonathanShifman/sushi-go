@@ -69,7 +69,8 @@ def validate_chosen_card_indices(hand, plate, chosen_card_indices):
     return [0]
 
 
-def play_single_game(game_name: str, players: list, should_load_from_input: bool = False):
+def play_single_game(game_name: str, players: list, should_load_from_input: bool = False,
+        should_log_results: bool = True):
     deck = create_deck(should_load_from_input)
     num_of_players = len(players)
     cards_per_player = 12 - num_of_players
@@ -135,13 +136,14 @@ def play_single_game(game_name: str, players: list, should_load_from_input: bool
     final_scores = [sum(scores) for scores in zip(total_scores, pudding_scores)]
     game_history['puddingScores'] = pudding_scores
     game_history['finalScores'] = final_scores
-    Logging.log_game_output(game_history)
+    if should_log_results:
+        Logging.log_game_output(game_history)
 
-    for round in game_history['rounds']:
-        del round['plates']
-    json_string = json.dumps(game_history)
-    with open('output/' + game_name + '.json', 'w') as f:
-        f.write(json_string)
+        for round in game_history['rounds']:
+            del round['plates']
+        json_string = json.dumps(game_history)
+        with open('output/' + game_name + '.json', 'w') as f:
+            f.write(json_string)
     return game_history
 
 
