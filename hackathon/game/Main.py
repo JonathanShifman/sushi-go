@@ -80,57 +80,58 @@ def play_single_game(game_name: str, players: list):
 
     game_history = {'players': [player.get_name() for player in players], 'rounds': []}
 
-for round_index in range(3):
-    plates = [[] for i in range(num_of_players)]round_moves_history = []
-    round_history = {
-        'roundMoves': round_moves_history,
-        'plates': plates
-    }
-    game_history['rounds'].append(round_history)
+    for round_index in range(3):
+        plates = [[] for _ in range(num_of_players)]
+        round_moves_history = []
+        round_history = {
+            'roundMoves': round_moves_history,
+            'plates': plates
+        }
+        game_history['rounds'].append(round_history)
 
-    hands = draw_hands(deck, num_of_players)
-
-    while len(hands[0]) > 0:
-        move_history = []
-        for player_index in range(num_of_players):
-            player_move_history = {}
-            player = players[player_index]
-            hand = hands[player_index]
-            plate = plates[player_index]
-            player_move_history['beforeAction'] = {
-                'hand': Logging.cards_to_names(hand),
-                'plate': Logging.cards_to_names(plate),
-            }
-            chosen_card_indices = player.play(KnowledgeFilter.filter_game_knowledge(game_history, player_index, hand, plate))
-            chosen_card_indices = validate_chosen_card_indices(hand, plate, chosen_card_indices)
-            player_move_history['chosenCardIndices'] = chosen_card_indices
-            if len(chosen_card_indices) == 1:
-                chosen_card_index = chosen_card_indices[0]
-                plate.append(hand[chosen_card_index])
-                del hand[chosen_card_index]
-            else:
-                chopsticks_index = find_chopsticks_index(plate)
-                del plate[chopsticks_index]
-                plate.append(hand[chosen_card_indices[0]])
-                plate.append(hand[chosen_card_indices[1]])
-                for chosen_card_index in sorted(chosen_card_indices, reverse=True):
+        hands = draw_hands(deck, num_of_players, cards_per_player)
+        while len(hands[0]) > 0:
+            move_history = []
+            for player_index in range(num_of_players):
+                player_move_history = {}
+                player = players[player_index]
+                hand = hands[player_index]
+                plate = plates[player_index]
+                player_move_history['beforeAction'] = {
+                    'hand': Logging.cards_to_names(hand),
+                    'plate': Logging.cards_to_names(plate),
+                }
+                chosen_card_indices = player.play(
+                    KnowledgeFilter.filter_game_knowledge(game_history, player_index, hand, plate))
+                chosen_card_indices = validate_chosen_card_indices(hand, plate, chosen_card_indices)
+                player_move_history['chosenCardIndices'] = chosen_card_indices
+                if len(chosen_card_indices) == 1:
+                    chosen_card_index = chosen_card_indices[0]
+                    plate.append(hand[chosen_card_index])
                     del hand[chosen_card_index]
-                hand.append(Cards.Chopsticks)
-            player_move_history['afterAction'] = {
-                'hand': Logging.cards_to_names(hand),
-                'plate': Logging.cards_to_names(plate),
-            }
-            move_history.append(player_move_history)
-        hands = rotate_hands(hands)
-        round_moves_history.append(move_history)
-    round_scores = Scoring.get_player_scores(plates)
-    total_scores = [sum(scores) for scores in zip(total_scores, round_scores)]
-    round_pudding_counts = Scoring.get_round_pudding_counts(plates)
-    total_pudding_counts = [sum(counts) for counts in zip(total_pudding_counts, round_pudding_counts)]
-    round_history['roundScores'] = round_scores
-    round_history['totalScores'] = total_scores
-    round_history['roundPuddingCounts'] = round_pudding_counts
-    round_history['totalPuddingCounts'] = total_pudding_counts
+                else:
+                    chopsticks_index = find_chopsticks_index(plate)
+                    del plate[chopsticks_index]
+                    plate.append(hand[chosen_card_indices[0]])
+                    plate.append(hand[chosen_card_indices[1]])
+                    for chosen_card_index in sorted(chosen_card_indices, reverse=True):
+                        del hand[chosen_card_index]
+                    hand.append(Cards.Chopsticks)
+                player_move_history['afterAction'] = {
+                    'hand': Logging.cards_to_names(hand),
+                    'plate': Logging.cards_to_names(plate),
+                }
+                move_history.append(player_move_history)
+            hands = rotate_hands(hands)
+            round_moves_history.append(move_history)
+        round_scores = Scoring.get_player_scores(plates)
+        total_scores = [sum(scores) for scores in zip(total_scores, round_scores)]
+        round_pudding_counts = Scoring.get_round_pudding_counts(plates)
+        total_pudding_counts = [sum(counts) for counts in zip(total_pudding_counts, round_pudding_counts)]
+        round_history['roundScores'] = round_scores
+        round_history['totalScores'] = total_scores
+        round_history['roundPuddingCounts'] = round_pudding_counts
+        round_history['totalPuddingCounts'] = total_pudding_counts
 
     pudding_scores = Scoring.get_pudding_scores(total_pudding_counts)
     final_scores = [sum(scores) for scores in zip(total_scores, pudding_scores)]
@@ -138,9 +139,12 @@ for round_index in range(3):
     game_history['finalScores'] = final_scores
     Logging.log_game_output(game_history)
 
-json_string = json.dumps(game_history)
-with open('output/' + game_name + '.json', 'w') as f:
-    f.write(json_string)return game_history
+    for round in game_history['rounds']:
+        del round['plates']
+    json_string = json.dumps(game_history)
+    with open('output/' + game_name + '.json', 'w') as f:
+        f.write(json_string)
+    return game_history
 
 
 if __name__ == '__main__':
