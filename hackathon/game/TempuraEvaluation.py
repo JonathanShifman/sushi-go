@@ -21,10 +21,10 @@ def get_tempura_value(game_knowledge, hand_estimation):
         estimated_tempuras_in_hand -= loop_index
         remaining_cards_ratio = (num_of_cards - move_index) / num_of_cards
         estimated_tempuras_in_hand *= remaining_cards_ratio
-        future_tempuras += max(0, estimated_tempuras_in_hand)
+        future_tempuras += min(1, max(0, estimated_tempuras_in_hand))
 
     if int(tempuras_on_plate) % 2 == 1:
         return 5
 
-    return min(1, future_tempuras / 2) * 2.5
+    return min(1, (future_tempuras-1) / 2) * 2.5
 

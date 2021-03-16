@@ -21,7 +21,7 @@ def get_dumpling_value(game_knowledge, hand_estimation):
         estimated_dumplings_in_hand -= loop_index
         remaining_cards_ratio = (num_of_cards - move_index) / num_of_cards
         estimated_dumplings_in_hand *= remaining_cards_ratio
-        future_dumplings += max(0, estimated_dumplings_in_hand)
+        future_dumplings += min(1, max(0, estimated_dumplings_in_hand))
 
     current_dumpling_score = 0
     for i in range(dumplings_on_plate):

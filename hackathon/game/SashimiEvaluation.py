@@ -21,7 +21,7 @@ def get_sashimi_value(game_knowledge, hand_estimation):
         estimated_sashimis_in_hand -= loop_index
         remaining_cards_ratio = (num_of_cards - move_index) / num_of_cards
         estimated_sashimis_in_hand *= remaining_cards_ratio
-        future_sashimis += max(0, estimated_sashimis_in_hand)
+        future_sashimis += min(1, max(0, estimated_sashimis_in_hand))
 
     if int(sashimis_on_plate) % 3 == 2:
         return 10

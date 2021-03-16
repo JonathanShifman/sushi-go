@@ -8,7 +8,7 @@ from Deck import Deck
 from players.RandomPlayer import RandomPlayer
 import YoniPlayer
 
-should_load_deck_from_input = False
+should_load_deck_from_input = True
 
 
 def load_deck_from_file() -> Deck:
@@ -138,7 +138,7 @@ def play_single_game(game_name: str, players: list):
     final_scores = [sum(scores) for scores in zip(total_scores, pudding_scores)]
     game_history['puddingScores'] = pudding_scores
     game_history['finalScores'] = final_scores
-    # Logging.log_game_output(game_history)
+    Logging.log_game_output(game_history)
 
     for round in game_history['rounds']:
         del round['plates']
@@ -147,15 +147,18 @@ def play_single_game(game_name: str, players: list):
         f.write(json_string)
     return game_history
 
-
-def is_game_won_by_first_player(game_history):
-    winner_score = max(game_history['finalScores'])
-    return game_history['finalScores'][0] == winner_score
-
 if __name__ == '__main__':
-    win_count = 0
-    for i in range(100):
-        game_history = play_single_game(game_name='game', players=[YoniPlayer, RandomPlayer(), RandomPlayer(), RandomPlayer()])
-        if is_game_won_by_first_player(game_history):
-            win_count += 1
-    print(win_count)
+    play_single_game(game_name='game', players=[YoniPlayer, YoniPlayer, YoniPlayer, YoniPlayer])
+
+
+# def is_game_won_by_first_player(game_history):
+#     winner_score = max(game_history['finalScores'])
+#     return game_history['finalScores'][0] == winner_score
+#
+# if __name__ == '__main__':
+#     win_count = 0
+#     for i in range(100):
+#         game_history = play_single_game(game_name='game', players=[YoniPlayer, RandomPlayer(), RandomPlayer(), RandomPlayer()])
+#         if is_game_won_by_first_player(game_history):
+#             win_count += 1
+#     print(win_count)

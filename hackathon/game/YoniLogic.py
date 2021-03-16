@@ -7,6 +7,7 @@ from DumplingEvaluation import get_dumpling_value
 from TempuraEvaluation import get_tempura_value
 from NigiriEvaluation import get_nigiri_value
 from WasabiEvaluation import get_wasabi_value
+from MakiEvaluation import get_maki_value
 
 type_to_possible_cards = {
     'Chopsticks': [Cards.Chopsticks],
@@ -23,19 +24,11 @@ def get_chopsticks_value(game_knowledge):
     hand = game_knowledge['currentHand']
     if YoniUtils.find_first_card_index(hand, Cards.Chopsticks) is None:
         return -1
-    return 0
+    return -0.1
 
 def get_pudding_value(game_knowledge):
     hand = game_knowledge['currentHand']
     if YoniUtils.find_first_card_index(hand, Cards.Pudding) is None:
-        return -1
-    return 1.5
-
-def get_maki_value(game_knowledge):
-    hand = game_knowledge['currentHand']
-    if YoniUtils.find_first_card_index(hand, Cards.Maki1) is None and \
-            YoniUtils.find_first_card_index(hand, Cards.Maki2) is None and \
-            YoniUtils.find_first_card_index(hand, Cards.Maki3) is None:
         return -1
     return 1.5
 
@@ -56,7 +49,7 @@ def play(game_knowledge):
     different_card_values = [
         {'type': 'Chopsticks', 'value': get_chopsticks_value(game_knowledge)},
         {'type': 'Pudding', 'value': get_pudding_value(game_knowledge)},
-        {'type': 'Maki', 'value': get_maki_value(game_knowledge)},
+        {'type': 'Maki', 'value': get_maki_value(game_knowledge, hand_estimations)},
         {'type': 'Dumpling', 'value': get_dumpling_value(game_knowledge, hand_estimations)},
         {'type': 'Tempura', 'value': get_tempura_value(game_knowledge, hand_estimations)},
         {'type': 'Sashimi', 'value': get_sashimi_value(game_knowledge, hand_estimations)},
