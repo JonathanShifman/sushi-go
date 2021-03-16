@@ -1,4 +1,4 @@
-import RandomPlayer
+from players import RandomPlayer
 from Cards import Cards
 import Scoring
 import Logging
