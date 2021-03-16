@@ -23,8 +23,16 @@ def get_tempura_value(game_knowledge, hand_estimation):
         estimated_tempuras_in_hand *= remaining_cards_ratio
         future_tempuras += min(1, max(0, estimated_tempuras_in_hand))
 
-    if int(tempuras_on_plate) % 2 == 1:
-        return 5
+    bonus = 0
+    if future_tempuras < 1.25:
+        next_player_index = (my_index + 1) % num_of_players
+        next_player_plate = game_knowledge['rounds'][-1]['plates'][next_player_index]
+        tempuras_on_next_plate = YoniUtils.count_card_occurrences(next_player_plate, Cards.Tempura)
+        if tempuras_on_next_plate % 2 == 1:
+            bonus = 5
 
-    return min(1, (future_tempuras-1) / 1.5) * 2.5
+    if int(tempuras_on_plate) % 2 == 1:
+        return 5 + bonus
+
+    return min(1, (future_tempuras-1) / 1.5) * 2.5 + bonus
 
