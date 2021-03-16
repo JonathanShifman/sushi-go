@@ -26,5 +26,5 @@ def get_tempura_value(game_knowledge, hand_estimation):
     if int(tempuras_on_plate) % 2 == 1:
         return 5
 
-    return min(1, (future_tempuras-1) / 2) * 2.5
+    return min(1, (future_tempuras-1) / 1.5) * 2.5
 

@@ -4,7 +4,10 @@ import Logging
 import Scoring
 from Cards import Cards
 from Deck import Deck
+from players.BayesianPlayer import APRIORY_PLAYER
 from players.RandomPlayer import RandomPlayer
+from players.yoni import YoniPlayer
+from VasiPlayer import GeneticPlayer
 
 
 def load_deck_from_file() -> Deck:
@@ -134,7 +137,7 @@ def play_single_game(game_name: str, players: list, should_load_from_input: bool
     final_scores = [sum(scores) for scores in zip(total_scores, pudding_scores)]
     game_history['puddingScores'] = pudding_scores
     game_history['finalScores'] = final_scores
-    Logging.log_game_output(game_history)
+    # Logging.log_game_output(game_history)
 
     for round in game_history['rounds']:
         del round['plates']
@@ -144,4 +147,20 @@ def play_single_game(game_name: str, players: list, should_load_from_input: bool
     return game_history
 
 if __name__ == '__main__':
-    play_single_game(game_name='game', players=[RandomPlayer(), RandomPlayer(), RandomPlayer(), RandomPlayer()])
+    vasi_wins = 0
+    lior_wins = 0
+    yoni_wins = 0
+    for i in range(1):
+        res = play_single_game(game_name='game', players=[YoniPlayer, APRIORY_PLAYER, GeneticPlayer()], should_load_from_input=False)
+        final_scores = res['finalScores']
+        winning_score = max(final_scores)
+        if final_scores[0] == winning_score:
+            yoni_wins += 1
+        if final_scores[1] == winning_score:
+            lior_wins += 1
+        if final_scores[2] == winning_score:
+            vasi_wins += 1
+
+print('Yoni: ' + str(yoni_wins))
+print('Lior: ' + str(lior_wins))
+print('Vasi: ' + str(vasi_wins))
