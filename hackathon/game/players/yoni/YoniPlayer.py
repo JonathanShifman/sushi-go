@@ -1,4 +1,5 @@
-import YoniLogic
+from players.yoni import YoniLogic
+
 
 def get_name():
     return 'Yoni'

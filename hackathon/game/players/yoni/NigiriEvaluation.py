@@ -1,6 +1,6 @@
-import YoniUtils
+from players.yoni import YoniUtils
 from Cards import Cards
-import math
+
 
 def get_strongest_nigiri(hand):
     nigiri3_count = YoniUtils.count_card_occurrences(hand, Cards.Nigiri3)

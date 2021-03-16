@@ -1,5 +1,6 @@
 from Deck import card_quantities
-import YoniUtils
+from players.yoni import YoniUtils
+
 
 def estimate_hands(game_knowledge, hands_memory):
     current_hand = game_knowledge['currentHand']

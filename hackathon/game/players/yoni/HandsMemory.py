@@ -1,4 +1,4 @@
-import YoniUtils
+from players.yoni import YoniUtils
 from Cards import Cards
 
 

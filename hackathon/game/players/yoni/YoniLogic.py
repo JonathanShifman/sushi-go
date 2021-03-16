@@ -1,13 +1,11 @@
-import YoniUtils
+from players.yoni import YoniUtils, HandEstimation, HandsMemory
 from Cards import Cards
-import HandEstimation
-import HandsMemory
-from SashimiEvaluation import get_sashimi_value
-from DumplingEvaluation import get_dumpling_value
-from TempuraEvaluation import get_tempura_value
-from NigiriEvaluation import get_nigiri_value
-from WasabiEvaluation import get_wasabi_value
-from MakiEvaluation import get_maki_value
+from players.yoni.SashimiEvaluation import get_sashimi_value
+from players.yoni.DumplingEvaluation import get_dumpling_value
+from players.yoni.TempuraEvaluation import get_tempura_value
+from players.yoni.NigiriEvaluation import get_nigiri_value
+from players.yoni.WasabiEvaluation import get_wasabi_value
+from players.yoni.MakiEvaluation import get_maki_value
 
 type_to_possible_cards = {
     'Chopsticks': [Cards.Chopsticks],
