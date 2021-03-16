@@ -15,3 +15,6 @@ def normalize_index(player_index, num_of_players):
     while player_index < 0:
         player_index += num_of_players
     return int(player_index) % int(num_of_players)
+
+def copy_list(lst):
+    return [x for x in lst]
