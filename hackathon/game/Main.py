@@ -1,5 +1,4 @@
 import json
-
 import KnowledgeFilter
 import Logging
 import Scoring
@@ -146,6 +145,6 @@ def play_single_game(game_name: str, players: list):
         f.write(json_string)
     return game_history
 
-
 if __name__ == '__main__':
     play_single_game(game_name='game', players=[RandomPlayer(), RandomPlayer(), RandomPlayer(), RandomPlayer()])
+
