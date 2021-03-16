@@ -23,11 +23,19 @@ def get_sashimi_value(game_knowledge, hand_estimation):
         estimated_sashimis_in_hand *= remaining_cards_ratio
         future_sashimis += min(1, max(0, estimated_sashimis_in_hand))
 
+    bonus = 0
+    if future_sashimis < 1.25:
+        next_player_index = (my_index + 1) % num_of_players
+        next_player_plate = game_knowledge['rounds'][-1]['plates'][next_player_index]
+        sashimis_on_next_plate = YoniUtils.count_card_occurrences(next_player_plate, Cards.Sashimi)
+        if sashimis_on_next_plate % 3 == 2:
+            bonus = 5
+
     if int(sashimis_on_plate) % 3 == 2:
-        return 10
+        return 10 + bonus
 
     if int(sashimis_on_plate) % 3 == 1:
-        return max(1, future_sashimis / 4) * 5
+        return max(1, future_sashimis / 4) * 5 + bonus
 
-    return min(1, future_sashimis / 6) * 3.33
+    return min(1, future_sashimis / 6) * 3.33 + bonus
 
