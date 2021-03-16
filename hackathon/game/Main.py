@@ -5,7 +5,6 @@ import Scoring
 from Cards import Cards
 from Deck import Deck
 from players.RandomPlayer import RandomPlayer
-from players.yoni import YoniPlayer
 
 should_load_deck_from_input = False
 
@@ -147,5 +146,5 @@ def play_single_game(game_name: str, players: list):
     return game_history
 
 if __name__ == '__main__':
-    play_single_game(game_name='game', players=[YoniPlayer, RandomPlayer(), RandomPlayer(), RandomPlayer()])
+    play_single_game(game_name='game', players=[RandomPlayer(), RandomPlayer(), RandomPlayer(), RandomPlayer()])
 
