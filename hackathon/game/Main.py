@@ -81,14 +81,15 @@ def play_single_game(game_name: str, players: list):
     game_history = {'players': [player.get_name() for player in players], 'rounds': []}
 
     for round_index in range(3):
+        plates = [[] for _ in range(num_of_players)]
         round_moves_history = []
         round_history = {
-            'roundMoves': round_moves_history
+            'roundMoves': round_moves_history,
+            'plates': plates
         }
         game_history['rounds'].append(round_history)
 
         hands = draw_hands(deck, num_of_players, cards_per_player)
-        plates = [[] for _ in range(num_of_players)]
         while len(hands[0]) > 0:
             move_history = []
             for player_index in range(num_of_players):
@@ -138,6 +139,8 @@ def play_single_game(game_name: str, players: list):
     game_history['finalScores'] = final_scores
     Logging.log_game_output(game_history)
 
+    for round in game_history['rounds']:
+        del round['plates']
     json_string = json.dumps(game_history)
     with open('output/' + game_name + '.json', 'w') as f:
         f.write(json_string)

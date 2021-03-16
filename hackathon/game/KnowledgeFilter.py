@@ -23,6 +23,7 @@ def filter_round_knowledge(round_history, player_index):
         round_knowledge['roundPuddingCounts'] = round_history['roundPuddingCounts']
         round_knowledge['totalPuddingCounts'] = round_history['totalPuddingCounts']
     round_knowledge['roundMoves'] = filter_moves_knowledge(round_history['roundMoves'], player_index)
+    round_knowledge['plates'] = round_history['plates']
     return round_knowledge
 
 def filter_rounds_knowledge(round_histories, player_index):
