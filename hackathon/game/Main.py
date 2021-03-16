@@ -77,14 +77,16 @@ total_pudding_counts = [0 for i in range(num_of_players)]
 game_history = {'players': [player.get_name() for player in players], 'rounds': []}
 
 for round_index in range(3):
+    plates = [[] for i in range(num_of_players)]
     round_moves_history = []
     round_history = {
-        'roundMoves': round_moves_history
+        'roundMoves': round_moves_history,
+        'plates': plates
     }
     game_history['rounds'].append(round_history)
 
     hands = draw_hands(deck, num_of_players)
-    plates = [[] for i in range(num_of_players)]
+
     while len(hands[0]) > 0:
         move_history = []
         for player_index in range(num_of_players):
