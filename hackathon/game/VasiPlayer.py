@@ -1,12 +1,9 @@
 from Cards import Cards
-import random as r
-
 
 class GeneticStrategy:
 
-    def __init__(self, seed):
+    def __init__(self):
         self.player_vector = {}
-        r.seed(seed)
         self.player_vector.update({'Tempura': 35})
         self.player_vector.update({'Sashimi': 40})
         self.player_vector.update({'Dumpling': 15})
@@ -21,9 +18,8 @@ class GeneticStrategy:
 
 class GeneticPlayer:
 
-    def __init__(self, geneticStrategy, id):
-        self.id = id
-        self.geneticStrategy = geneticStrategy
+    def __init__(self):
+        self.geneticStrategy = GeneticStrategy()
 
     def get_name(self):
         return 'Vasi'
@@ -41,8 +37,7 @@ class GeneticPlayer:
         card = game_knowledge.get('currentHand')[card_index]
         left_cards_coefficient = (len(game_knowledge.get('currentHand')) / (12 - len(game_knowledge.get('players'))))
         if card.name == 'Wasabi':
-            return self.geneticStrategy.player_vector.get('Wasabi') * left_cards_coefficient * pow(2,
-                                                                                                   - open_wasabi_amount)
+            return self.geneticStrategy.player_vector.get('Wasabi') * left_cards_coefficient * pow(2, - open_wasabi_amount)
         if card.name == 'Nigiri1':
             if open_wasabi_amount > 0:
                 return self.geneticStrategy.player_vector.get('Nigiri') * 3
