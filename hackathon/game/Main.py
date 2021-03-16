@@ -6,8 +6,6 @@ from Cards import Cards
 from Deck import Deck
 from players.RandomPlayer import RandomPlayer
 
-should_load_deck_from_input = False
-
 
 def load_deck_from_file() -> Deck:
     with open('input/deck.txt', 'r') as f:
@@ -70,8 +68,8 @@ def validate_chosen_card_indices(hand, plate, chosen_card_indices):
     return [0]
 
 
-def play_single_game(game_name: str, players: list):
-    deck = create_deck(should_load_deck_from_input)
+def play_single_game(game_name: str, players: list, should_load_from_input: bool = False):
+    deck = create_deck(should_load_from_input)
     num_of_players = len(players)
     cards_per_player = 12 - num_of_players
     total_scores = [0 for _ in range(num_of_players)]
@@ -147,4 +145,3 @@ def play_single_game(game_name: str, players: list):
 
 if __name__ == '__main__':
     play_single_game(game_name='game', players=[RandomPlayer(), RandomPlayer(), RandomPlayer(), RandomPlayer()])
-
