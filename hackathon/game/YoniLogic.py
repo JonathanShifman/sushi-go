@@ -5,6 +5,8 @@ import HandsMemory
 from SashimiEvaluation import get_sashimi_value
 from DumplingEvaluation import get_dumpling_value
 from TempuraEvaluation import get_tempura_value
+from NigiriEvaluation import get_nigiri_value
+from WasabiEvaluation import get_wasabi_value
 
 type_to_possible_cards = {
     'Chopsticks': [Cards.Chopsticks],
@@ -37,20 +39,6 @@ def get_maki_value(game_knowledge):
         return -1
     return 1.5
 
-def get_nigiri_value(game_knowledge):
-    hand = game_knowledge['currentHand']
-    if YoniUtils.find_first_card_index(hand, Cards.Nigiri1) is None and \
-            YoniUtils.find_first_card_index(hand, Cards.Nigiri2) is None and \
-            YoniUtils.find_first_card_index(hand, Cards.Nigiri3) is None:
-        return -1
-    return 1.5
-
-def get_wasabi_value(game_knowledge):
-    hand = game_knowledge['currentHand']
-    if YoniUtils.find_first_card_index(hand, Cards.Wasabi) is None:
-        return -1
-    return 1.5
-
 def get_index_of_best_card(hand, best_card_type):
     possible_cards = type_to_possible_cards[best_card_type]
     for possible_card in possible_cards:
@@ -72,8 +60,8 @@ def play(game_knowledge):
         {'type': 'Dumpling', 'value': get_dumpling_value(game_knowledge, hand_estimations)},
         {'type': 'Tempura', 'value': get_tempura_value(game_knowledge, hand_estimations)},
         {'type': 'Sashimi', 'value': get_sashimi_value(game_knowledge, hand_estimations)},
-        {'type': 'Nigiri', 'value': get_nigiri_value(game_knowledge)},
-        {'type': 'Wasabi', 'value': get_wasabi_value(game_knowledge)},
+        {'type': 'Nigiri', 'value': get_nigiri_value(game_knowledge, hand_estimations)},
+        {'type': 'Wasabi', 'value': get_wasabi_value(game_knowledge, hand_estimations)},
     ]
 
     sorted_card_values = sorted(different_card_values, key=lambda card: card['value'], reverse=True)

@@ -29,5 +29,5 @@ def get_sashimi_value(game_knowledge, hand_estimation):
     if int(sashimis_on_plate) % 3 == 1:
         return max(1, future_sashimis / 4) * 5
 
-    return max(1, future_sashimis / 6) * 3.33
+    return min(1, future_sashimis / 6) * 3.33
 
