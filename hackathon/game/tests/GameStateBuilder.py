@@ -42,6 +42,9 @@ class FillerCardGameBuilder(object):
             'currentHand': self.relevant_hand + [self.filler_card] * (self.cardsInHand - len(self.relevant_hand)),
             'currentPlate': self.relevant_plate + [self.filler_card] * self.past_turns,
             'rounds': [
-                {'plates': [[self.filler_card] * self.past_turns] * self.playerAmount}
+                {
+                    'roundMoves': [{'hand': [self.filler_card] * self.cardsInHand}] * self.past_turns,
+                    'plates': [[self.filler_card] * self.past_turns] * self.playerAmount
+                }
             ]
         }
