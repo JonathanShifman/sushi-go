@@ -4,16 +4,14 @@ class GeneticStrategy:
 
     def __init__(self):
         self.player_vector = {}
-        self.player_vector.update({'Tempura': 35})
-        self.player_vector.update({'Sashimi': 40})
-        self.player_vector.update({'Dumpling': 15})
-        self.player_vector.update({'PickMaki': 20})
-        self.player_vector.update({'Maki': 12})
-        self.player_vector.update({'Wasabi': 50})
-        self.player_vector.update({'Nigiri': 10})
-        self.player_vector.update({'Pudding': 18})
-        self.player_vector.update({'Chopsticks': 25})
-        self.player_vector.update({'PickTwoCards': 40})
+        self.player_vector.update({'Tempura': 50})
+        self.player_vector.update({'Sashimi': 91})
+        self.player_vector.update({'Dumpling': 17})
+        self.player_vector.update({'PickMaki': 30})
+        self.player_vector.update({'Maki': 4})
+        self.player_vector.update({'Wasabi': 5})
+        self.player_vector.update({'Nigiri': 50})
+        self.player_vector.update({'Pudding': 70})
 
 
 class GeneticPlayer:
@@ -75,17 +73,14 @@ class GeneticPlayer:
                 return self.geneticStrategy.player_vector.get('Sashimi') * left_cards_coefficient
 
         if card.name == 'Maki1':
-            return self.calc_maki_value(game_knowledge)
+            return self.geneticStrategy.player_vector.get('Maki')
         if card.name == 'Maki2':
-            return self.calc_maki_value(game_knowledge) * 1.5
+            return self.geneticStrategy.player_vector.get('Maki') * 1.5
         if card.name == 'Maki3':
-            return self.calc_maki_value(game_knowledge) * 2
+            return self.geneticStrategy.player_vector.get('Maki') * 2
 
         if card.name == 'Pudding':
             return self.geneticStrategy.player_vector.get('Pudding')
-
-        if card.name == 'Chopsticks':
-            return self.geneticStrategy.player_vector.get('Chopsticks') * left_cards_coefficient
         return 0
 
     def calc_open_wasabi_amount(self, currentPlate):
@@ -100,6 +95,3 @@ class GeneticPlayer:
             if card.name == 'Nigiri3':
                 open_wasabi_amount -= 1
         return open_wasabi_amount
-
-    def calc_maki_value(self, game_knowledge):
-        return self.geneticStrategy.player_vector.get('Maki')
