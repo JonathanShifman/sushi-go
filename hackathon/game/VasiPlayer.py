@@ -5,12 +5,12 @@ class GeneticStrategy:
     def __init__(self):
         self.player_vector = {}
         self.player_vector.update({'Tempura': 50})
-        self.player_vector.update({'Sashimi': 91})
-        self.player_vector.update({'Dumpling': 17})
+        self.player_vector.update({'Sashimi': 60})
+        self.player_vector.update({'Dumpling': 60})
         self.player_vector.update({'PickMaki': 30})
         self.player_vector.update({'Maki': 4})
         self.player_vector.update({'Wasabi': 5})
-        self.player_vector.update({'Nigiri': 50})
+        self.player_vector.update({'Nigiri': 25})
         self.player_vector.update({'Pudding': 70})
 
 

@@ -149,18 +149,33 @@ def play_single_game(game_name: str, players: list, should_load_from_input: bool
 if __name__ == '__main__':
     vasi_wins = 0
     yoni_wins = 0
-    lior_wins = 0
-    for i in range(200):
-        res = play_single_game(game_name='game', players=[YoniPlayer, APRIORY_PLAYER, GeneticPlayer()], should_load_from_input=False)
+    for i in range(100):
+        res = play_single_game(game_name='game', players=[YoniPlayer, GeneticPlayer()], should_load_from_input=False)
         final_scores = res['finalScores']
         winning_score = max(final_scores)
         if final_scores[0] == winning_score:
             yoni_wins += 1
         if final_scores[1] == winning_score:
-            lior_wins += 1
-        if final_scores[2] == winning_score:
             vasi_wins += 1
 
 print('Yoni: ' + str(yoni_wins))
 print('Vasi: ' + str(vasi_wins))
-print('Lior: ' + str(lior_wins))
+
+# if __name__ == '__main__':
+#     vasi_wins = 0
+#     yoni_wins = 0
+#     lior_wins = 0
+#     for i in range(100):
+#         res = play_single_game(game_name='game', players=[YoniPlayer, APRIORY_PLAYER, GeneticPlayer()], should_load_from_input=False)
+#         final_scores = res['finalScores']
+#         winning_score = max(final_scores)
+#         if final_scores[0] == winning_score:
+#             yoni_wins += 1
+#         if final_scores[1] == winning_score:
+#             lior_wins += 1
+#         if final_scores[2] == winning_score:
+#             vasi_wins += 1
+#
+# print('Yoni: ' + str(yoni_wins))
+# print('Vasi: ' + str(vasi_wins))
+# print('Lior: ' + str(lior_wins))

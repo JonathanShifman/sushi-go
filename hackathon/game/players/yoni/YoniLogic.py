@@ -28,7 +28,7 @@ def get_pudding_value(game_knowledge):
     hand = game_knowledge['currentHand']
     if YoniUtils.find_first_card_index(hand, Cards.Pudding) is None:
         return -1
-    return 2.25
+    return 1.99
 
 def get_index_of_best_card(hand, best_card_type):
     possible_cards = type_to_possible_cards[best_card_type]
