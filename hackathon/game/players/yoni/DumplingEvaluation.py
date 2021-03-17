@@ -23,6 +23,14 @@ def get_dumpling_value(game_knowledge, hand_estimation):
         estimated_dumplings_in_hand *= remaining_cards_ratio
         future_dumplings += min(1, max(0, estimated_dumplings_in_hand))
 
+    bonus = 0
+    if future_dumplings < 1.25:
+        next_player_index = (my_index + 1) % num_of_players
+        next_player_plate = game_knowledge['rounds'][-1]['plates'][next_player_index]
+        dumplings_on_next_plate = YoniUtils.count_card_occurrences(next_player_plate, Cards.Dumpling)
+        if dumplings_on_next_plate >= 2:
+            bonus = 3
+
     current_dumpling_score = 0
     for i in range(dumplings_on_plate):
         current_dumpling_score += i + 1
@@ -37,5 +45,5 @@ def get_dumpling_value(game_knowledge, hand_estimation):
     remainder = future_dumplings - dumpling_count
     future_dumpling_score += remainder * (dumpling_count + 1)
     card_value = future_dumpling_score / future_dumplings
-    return card_value
+    return card_value + bonus
 
