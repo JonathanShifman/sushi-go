@@ -94,6 +94,18 @@ class TestBayesianPlayers(object):
         assert victories > amount_of_games * 0.5
 
 
+    @staticmethod
+    def test_whenFacingAllPlayers_thenDeckAwarePlayerWinsInMajorityOfCases():
+        victories = 0
+        amount_of_games = 100
+        for game_round in range(amount_of_games):
+            result = play_single_game('test_vasi_vs_dexter_vs_yoni_vs_randy' + str(game_round), [GeneticPlayer(), DECK_AWARE_PLAYER, YoniPlayer, RandomPlayer()],
+                should_load_from_input=False, should_log_results=False)
+            victories += 1 if determine_winner_index(result) == 1 else 0
+        print('victory ratio was: ' + str(victories))
+        assert victories > amount_of_games * 0.5
+
+
 class TestBayesianReasoning(object):
 
     def test_whenNotAwareOfAnySashimis_thenExpectedAmountOfSashimiIsCalculatedRoughly(self):
@@ -197,7 +209,7 @@ class TestBayesianReasoning(object):
 
     def test_whenManyTurnsAreLeft_thenChopsticksArePreferableToNigiri1(self):
         game_state = FillerCardGameBuilder() \
-            .set_hand_size(5) \
+            .set_hand_size(8) \
             .set_filler_card(Cards.Nigiri1) \
             .substitute_cards_into_hand([Cards.Chopsticks]) \
             .build()

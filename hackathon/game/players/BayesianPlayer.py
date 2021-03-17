@@ -12,7 +12,7 @@ def get_name():
 
 
 card_apriori_values = {
-    Cards.Chopsticks: 1.1,
+    Cards.Chopsticks: 0.4,
     Cards.Nigiri1: 1,
     Cards.Nigiri2: 2,
     Cards.Nigiri3: 3,
@@ -32,7 +32,7 @@ chance_of_opponent_to_spare = {
     Cards.Nigiri1: 0.95,
     Cards.Nigiri2: 0.85,
     Cards.Nigiri3: 0.5,
-    Cards.Dumpling: 0.75,
+    Cards.Dumpling: 0.45,
 }
 
 APRIORY_PLAYER = GreedyPlayer(lambda card: card_apriori_values[card], "April")
@@ -87,7 +87,7 @@ def calculate_future_nigiri_expectancy(game_knowledge):
 
 
 def evaluate_chopsticks(turn_state):
-    turn_to_player_ratio = count_cards_in_hand(turn_state) / count_players(turn_state)
+    turn_to_player_ratio = (count_cards_in_hand(turn_state)-1) / count_players(turn_state)
     return card_apriori_values[Cards.Chopsticks] * int(turn_to_player_ratio)
 
 
