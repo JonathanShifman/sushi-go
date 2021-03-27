@@ -4,7 +4,7 @@ import Logging
 import Scoring
 from Cards import Cards
 from Deck import Deck
-from players.BayesianPlayer import APRIORY_PLAYER
+from players.BayesianPlayer import APRIORY_PLAYER, DECK_AWARE_PLAYER
 from players.RandomPlayer import RandomPlayer
 from players.yoni import YoniPlayer
 from VasiPlayer import GeneticPlayer

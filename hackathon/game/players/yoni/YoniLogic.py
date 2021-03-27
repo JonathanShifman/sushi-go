@@ -6,6 +6,7 @@ from players.yoni.TempuraEvaluation import get_tempura_value
 from players.yoni.NigiriEvaluation import get_nigiri_value
 from players.yoni.WasabiEvaluation import get_wasabi_value
 from players.yoni.MakiEvaluation import get_maki_value
+from players.yoni.PuddingEvaluation import get_pudding_value
 
 type_to_possible_cards = {
     'Chopsticks': [Cards.Chopsticks],
@@ -24,12 +25,6 @@ def get_chopsticks_value(game_knowledge):
         return -1
     return -0.1
 
-def get_pudding_value(game_knowledge):
-    hand = game_knowledge['currentHand']
-    if YoniUtils.find_first_card_index(hand, Cards.Pudding) is None:
-        return -1
-    return 2.25
-
 def get_index_of_best_card(hand, best_card_type):
     possible_cards = type_to_possible_cards[best_card_type]
     for possible_card in possible_cards:
@@ -46,7 +41,7 @@ def play(game_knowledge):
 
     different_card_values = [
         {'type': 'Chopsticks', 'value': get_chopsticks_value(game_knowledge)},
-        {'type': 'Pudding', 'value': get_pudding_value(game_knowledge)},
+        {'type': 'Pudding', 'value': get_pudding_value(game_knowledge, hand_estimations)},
         {'type': 'Maki', 'value': get_maki_value(game_knowledge, hand_estimations)},
         {'type': 'Dumpling', 'value': get_dumpling_value(game_knowledge, hand_estimations)},
         {'type': 'Tempura', 'value': get_tempura_value(game_knowledge, hand_estimations)},

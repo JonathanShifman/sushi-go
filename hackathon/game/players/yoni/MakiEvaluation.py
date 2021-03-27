@@ -72,5 +72,6 @@ def get_maki_value(game_knowledge, hand_estimations):
     if missing_makis <= 0:
         return 0
 
-    potential_step_ratio = min(1.0, strongest_maki / missing_makis)
-    return potential_step_ratio * 4.5
+    potential_step_ratio1 = min(1.0, strongest_maki / missing_makis)
+    potential_step_ratio2 = min(1.0, strongest_maki / total_maki)
+    return (potential_step_ratio1*0.5 + potential_step_ratio2*0.5) * 4.5
