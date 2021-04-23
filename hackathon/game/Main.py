@@ -4,10 +4,8 @@ import Logging
 import Scoring
 from Cards import Cards
 from Deck import Deck
-from players.BayesianPlayer import APRIORY_PLAYER, DECK_AWARE_PLAYER
 from players.RandomPlayer import RandomPlayer
 from players.yoni import YoniPlayer
-from VasiPlayer import GeneticPlayer
 
 
 def load_deck_from_file() -> Deck:
@@ -71,9 +69,9 @@ def validate_chosen_card_indices(hand, plate, chosen_card_indices):
     return [0]
 
 
-def play_single_game(game_name: str, players: list, should_load_from_input: bool = False,
-        should_log_results: bool = True):
-    deck = create_deck(should_load_from_input)
+def play_single_game(game_name: str, players: list, should_load_deck_from_input: bool = False,
+                     should_log_results: bool = True):
+    deck = create_deck(should_load_deck_from_input)
     num_of_players = len(players)
     cards_per_player = 12 - num_of_players
     total_scores = [0 for _ in range(num_of_players)]
@@ -149,16 +147,4 @@ def play_single_game(game_name: str, players: list, should_load_from_input: bool
     return game_history
 
 if __name__ == '__main__':
-    yoni_wins = 0
-    vasi1_wins = 0
-    for i in range(1000):
-        res = play_single_game(game_name='game', players=[YoniPlayer, GeneticPlayer()], should_load_from_input=False, should_log_results=False)
-        final_scores = res['finalScores']
-        winning_score = max(final_scores)
-        if final_scores[0] == winning_score:
-            yoni_wins += 1
-        if final_scores[1] == winning_score:
-            vasi1_wins += 1
-
-print('Yoni: ' + str(yoni_wins))
-print('Vasi 1: ' + str(vasi1_wins))
+       play_single_game(game_name='game', players=[RandomPlayer(), RandomPlayer(), RandomPlayer(), RandomPlayer()], should_load_deck_from_input=False, should_log_results=True)
